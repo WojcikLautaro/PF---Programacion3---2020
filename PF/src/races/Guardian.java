@@ -8,12 +8,12 @@ import character.Resources;
 import clases.BaseClas;
 
 public abstract class Guardian <T extends BaseClas> extends BaseRace <T> {
-	public static enum POSIBLE_ALIANCES { Guardianes }
+	public static enum POSIBLE_ALIANCES { GUARDIANES }
 	public static enum POSIBLE_RACES { 
-		Humano,
-		Elfo,
-		Enano,
-		Draenel
+		HUMANO,
+		ELFO,
+		ENANO,
+		DRAENEL
 	};
 
 	public Guardian(Resources resources, ArrayList<Ability> abilities) {

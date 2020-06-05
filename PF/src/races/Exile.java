@@ -8,12 +8,12 @@ import character.Resources;
 import clases.BaseClas;
 
 public abstract class Exile <T extends BaseClas> extends BaseRace <T> {
-	public static enum POSIBLE_ALIANCES { Exiliados }
+	public static enum POSIBLE_ALIANCES { EXILIADOS }
 	public static enum POSIBLE_RACES { 
-		Orco,
-		NoMuerto,
-		Trol,
-		Goblin
+		ORCO,
+		NOMUERTO,
+		TROL,
+		GOBLIN
 	}
 	
 	public Exile(Resources resources, ArrayList<Ability> abilities) {
