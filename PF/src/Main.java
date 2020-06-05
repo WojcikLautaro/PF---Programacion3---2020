@@ -1,6 +1,9 @@
+import character.BaseRace;
+import clases.BaseClas;
 
 public class Main {
 	public static void main(String[] args) {
+		BaseRace <BaseClas> b = new BaseRace <> ("pedro");
 		/*
 		 * Orco -> Guerrero, Paladin, Picaro, Cazador
 		 * Trol -> Guerrero, Brujo
@@ -14,5 +17,5 @@ public class Main {
 		 */
 	}
 	
-	// PROBANDO MODIFICACIÓN DE PULL Y PUSH EN GIT.
+	// PROBANDO MODIFICACIï¿½N DE PULL Y PUSH EN GIT.
 }

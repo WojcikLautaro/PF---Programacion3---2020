@@ -8,7 +8,8 @@ import clases.BaseClas;
 public abstract class BaseRace <T extends BaseClas>{
 	public static enum POSIBLE_ALIANCES {
 		EXILIADOS,
-		GUARDIANES
+		GUARDIANES,
+		NOALIANCE
 	}
 	public static enum POSIBLE_RACES {
 		ORCO,
@@ -18,7 +19,8 @@ public abstract class BaseRace <T extends BaseClas>{
 		HUMANO,
 		ELFO,
 		ENANO,
-		DRAENEL
+		DRAENEL,
+		NORACE
 	}
 	public static enum EXILED_RACES {
 		ORCO,
@@ -32,13 +34,23 @@ public abstract class BaseRace <T extends BaseClas>{
 		ENANO,
 		DRAENEL
 	}
+	public static enum POSIBLE_CLASES {
+		GUERRERO, 
+		PALADÍN, 
+		CAZADOR, 
+		PÍCARO, 
+		SACERDOTE, 
+		MAGO,
+		BRUJO,
+		DRUIDA,
+		NO_CLASS
+	}
 	
 	public POSIBLE_ALIANCES aliance;
 	public POSIBLE_RACES race;
-	public T.POSIBLE_CLASES job;
+	public POSIBLE_CLASES job;
 	
 	public String characterDescription;
-	public ArrayList <String> titles;
 	public String nick;
 	public Integer lvl;
 	
@@ -46,23 +58,44 @@ public abstract class BaseRace <T extends BaseClas>{
 	public Atributes atributes;
 	public ArrayList <Ability> abilities;
 	
-	public BaseRace () {
+	/**
+	 * @param String nickname: el nombre dek nuevo personaje.
+	 * @return Devuelve un objeto de la clase "BaseRace" nuevo. este metodo esta dedicado a personajes recien creados.
+	 */
+	
+	public BaseRace (String nickname) {
 		this.atributes = new Atributes (getBaseAtributesFromRace());
 		this.atributes.setAtributesMultiplier(T.getBaseAtributesFromClas());
 		
 		this.resources = T.getClassResources();
 		this.abilities = new ArrayList <> (T.getClassAbilities());
 		
-		/*
-		aliance;
-		race;
-		job;
+		this.job = T.getEnumClas ();
+		this.race = getEnumRace ();
+		this.aliance = getEnumAliance ();
 		
-		characterDescription;
-		titles;
-		nick;
-		lvl;
-		*/
+		this.characterDescription = getCharacterDescription ();
+		this.nick = nickname;
+		this.lvl = 0;
+	}
+	
+	public BaseRace (String nickname, Atributes attr, int lvl) {
+		this(nickname);
+		
+		this.atributes = new Atributes (getBaseAtributesFromRace());
+		this.lvl = lvl;
+	}
+	
+	protected static POSIBLE_RACES getEnumRace () {
+		return POSIBLE_RACES.NORACE;
+	}
+	
+	protected static POSIBLE_ALIANCES getEnumAliance () {
+		return POSIBLE_ALIANCES.NOALIANCE;
+	}
+	
+	protected static String getCharacterDescription () {
+		return "";
 	}
 	
 	protected static BaseAtributes getBaseAtributesFromRace () {

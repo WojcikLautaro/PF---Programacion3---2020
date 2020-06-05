@@ -3,24 +3,20 @@ import java.util.ArrayList;
 
 import atributes.AtributeMultipliers;
 import character.Ability;
+import character.BaseRace.POSIBLE_CLASES;
 import character.Resources;
 
-public class BaseClas {
+public abstract class BaseClas {
 	private static final String NO_CLASS = "No Class";
 
-	public static enum POSIBLE_CLASES {
-		GUERRERO, 
-		PALADÍN, 
-		CAZADOR, 
-		PÍCARO, 
-		SACERDOTE, 
-		MAGO,
-		BRUJO,
-		DRUIDA
-	}
+	
 	
 	public static String getClassName () {
 		return NO_CLASS;
+	}
+	
+	public static POSIBLE_CLASES getEnumClas () {
+		return POSIBLE_CLASES.NO_CLASS;
 	}
 	
 	public static ArrayList<Ability> getClassAbilities () {
