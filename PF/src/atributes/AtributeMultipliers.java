@@ -1,14 +1,14 @@
 package atributes;
 
 public class AtributeMultipliers {
-	float luck;
-	float divinity;
-	float carism;
-	float endurance;
-	float strenght;
-	float inteligence;
-	float wisdom;
-	float dexterity;
+	protected float luck;
+	protected float divinity;
+	protected float carism;
+	protected float endurance;
+	protected float strenght;
+	protected float inteligence;
+	protected float wisdom;
+	protected float dexterity;
 	
 	public AtributeMultipliers () {
 		strenght = 1;

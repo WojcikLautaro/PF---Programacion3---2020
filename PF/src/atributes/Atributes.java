@@ -1,27 +1,44 @@
 package atributes;
 
 public class Atributes {
-	public static enum POSIBLE_ATRIBUTES { 
-		STRENGHT,
-		INTELIGENCE,
-		WISDOM,
-		DEXTERITY,
-		LUCK,
-		DIVINITY,
-		CHARISM,
-		ENDURANCE;
+	/* Posibles atributos:
+	 * Fuerza,
+	 * Inteligencia,
+	 * Sabiduria,
+	 * Destreza,
+	 * Suerte,
+	 * Divinidad,
+	 * Carisma,
+	 * Aguante;
+	 */
+	
+	public AtributosBase baseAtributes;
+	public AtributeMultipliers multipliers;
+	
+	public Atributes () {
+		this.baseAtributes = new AtributosBase();
+		this.multipliers = new AtributeMultipliers();
 	}
 	
-	protected BaseAtributes baseAtributes;
-	protected AtributeMultipliers multipliers;
-	
-	public Atributes (BaseAtributes baseAtributes) {
+	/**
+	 * @param baseAtributes
+	 */
+	public Atributes (AtributosBase baseAtributes) {
 		this.baseAtributes = baseAtributes;
-		multipliers = new AtributeMultipliers();
+		this.multipliers = new AtributeMultipliers();
+	}
+	
+	public Atributes (AtributosBase baseAtributes, AtributeMultipliers multipliers) {
+		this.baseAtributes = baseAtributes;
+		this.multipliers = multipliers;
 	}
 	
 	public void setAtributesMultiplier (AtributeMultipliers multipliers) {
 		this.multipliers = multipliers;
+	}
+	
+	public void setBaseAtributes (AtributosBase baseAtributes) {
+		this.baseAtributes = baseAtributes;
 	}
 	
 	public Float getLuck() {
@@ -47,55 +64,5 @@ public class Atributes {
 	}
 	public Float getDexterity() {
 		return baseAtributes.getDexterity() * multipliers.getDexterity();
-	}
-	
-	public void setDexterity(int dexterity) {
-		this.baseAtributes.setDexterity(dexterity);
-	}
-	public void setLuck(int luck) {
-		this.baseAtributes.setLuck(luck);
-	}
-	public void setWisdom(int wisdom) {
-		this.baseAtributes.setWisdom(wisdom);
-	}
-	public void setDivinity(int divinity) {
-		this.baseAtributes.setDivinity(divinity);
-	}
-	public void setEndurance(int endurance) {
-		this.baseAtributes.setEndurance(endurance);
-	}
-	public void setStrenght(int strenght) {
-		this.baseAtributes.setStrenght(strenght);
-	}
-	public void setInteligence(int inteligence) {
-		this.baseAtributes.setInteligence(inteligence);
-	}
-	public void setCharisma(int carism) {
-		this.baseAtributes.setCarism(carism);
-	}
-	
-	public void setDexterityMultiplier(Float dexterity) {
-		this.multipliers.setDexterity(dexterity);
-	}
-	public void setLuckMultiplier(Float luck) {
-		this.multipliers.setLuck(luck);
-	}
-	public void setWisdomMultiplier(Float wisdom) {
-		this.multipliers.setWisdom(wisdom);
-	}
-	public void setDivinityMultiplier(Float divinity) {
-		this.multipliers.setDivinity(divinity);
-	}
-	public void setEnduranceMultiplier(Float endurance) {
-		this.multipliers.setEndurance(endurance);
-	}
-	public void setStrenghtMultiplier(Float strenght) {
-		this.multipliers.setStrenght(strenght);
-	}
-	public void setInteligenceMultiplier(Float inteligence) {
-		this.multipliers.setInteligence(inteligence);
-	}
-	public void setCharismaMultiplier(Float carism) {
-		this.multipliers.setCarism(carism);
 	}
 }
