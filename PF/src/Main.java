@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 import clases.Guerrero;
 import clases.Mago;
-import razas.Orco;
 import razas.RazaBase;
-import razas.Trol;
+import razas.ClasesConcretas.Orco;
+import razas.ClasesConcretas.Trol;
 
 public class Main {
 	public static void main(String[] args) {
@@ -18,4 +18,16 @@ public class Main {
   
 	// PROBANDO MODIFICACIÓN DE PULL Y PUSH EN GIT.
 	// Probando modif con new branch.
+	
+	/*
+	 * Orco -> Guerrero, Paladin, Picaro, Cazador
+	 * Trol -> Guerrero, Brujo
+	 * Goblin -> Picaro, Guerrero, Brujo
+	 * No muerto -> Brujo, Sacerdote, Mago
+	 * 
+	 * Humano -> Guerrero, Paladin, Picaro, Cazador
+	 * Elfo -> Druida, Brujo, Sacerdote, Mago
+	 * Enano -> Picaro, Guerrero, Paladin
+	 * Draenel -> Brujo, Sacerdote, Mago
+	 */
 }

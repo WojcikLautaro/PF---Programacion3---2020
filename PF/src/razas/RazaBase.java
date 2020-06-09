@@ -71,7 +71,7 @@ public abstract class RazaBase <T extends ClaseBase> {
 	
 	protected Recursos resources;
 	protected Atributes atributes;
-	protected ArrayList <Habilidad> abilities;
+	protected ArrayList <Habilidad> habilidades;
 	
 	/**
 	 * @param String nickname: el nombre del nuevo personaje.
@@ -82,7 +82,7 @@ public abstract class RazaBase <T extends ClaseBase> {
 		this.atributes = new Atributes (getBaseAtributesFromRace(), clase.getMultiplicadorDeAtributosDeClase());
 		
 		this.resources = clase.getClassResources();
-		this.abilities = new ArrayList <> (clase.getClassAbilities());
+		this.habilidades = new ArrayList <> (clase.getClassAbilities());
 		
 		this.clase = clase.getEnumDeClase ();
 		this.raza = getEnumRace ();
@@ -105,7 +105,6 @@ public abstract class RazaBase <T extends ClaseBase> {
 	protected abstract POSIBLES_ALIANZAS getEnumAliance ();
 	protected abstract String getDescripcionDePersonaje ();
 	protected abstract AtributosBase getBaseAtributesFromRace ();
-	
 	
 	public POSIBLES_RAZAS getNombreDeRaza () {
 		return this.raza;
@@ -132,7 +131,7 @@ public abstract class RazaBase <T extends ClaseBase> {
 	}
 	
 	public ArrayList <Habilidad> getHabilidades () {
-		return new ArrayList <> ();
+		return habilidades;
 	}
 	
 	@Override

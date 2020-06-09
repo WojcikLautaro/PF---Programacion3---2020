@@ -1,28 +1,32 @@
-package razas;
+package razas.ClasesConcretas;
 
 import atributes.Atributes;
 import atributes.AtributosBase;
 import clases.ClaseBase;
+import razas.Exiliados;
 
-public class Orco <T extends ClaseBase> extends Exiliados <T> {
-	public Orco(String nickname,T clase) {
+public class NoMuerto <T extends ClaseBase> extends Exiliados<T> {
+	public NoMuerto(String nickname,T clase) {
 		super(nickname, clase);
-		// TODO Auto-generated constructor stub
 	}
 	
-	public Orco(String nickname,T clase, Atributes attr, int lvl) {
+	public NoMuerto(String nickname, T clase, Atributes attr, int lvl) {
 		super(nickname, clase, attr, lvl);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected POSIBLES_RAZAS getEnumRace() {
-		return POSIBLES_RAZAS.ORCO;
+		return POSIBLES_RAZAS.NOMUERTO;
+	}
+
+	@Override
+	protected POSIBLES_ALIANZAS getEnumAliance() {
+		return POSIBLES_ALIANZAS.EXILIADOS;
 	}
 
 	@Override
 	protected String getDescripcionDePersonaje() {
-		return Messages.getString("Orco.Description"); //$NON-NLS-1$
+		return "Un no muerto";
 	}
 
 	@Override
