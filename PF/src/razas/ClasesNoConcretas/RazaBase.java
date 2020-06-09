@@ -1,13 +1,13 @@
-package razas;
+package razas.ClasesNoConcretas;
 
 import java.util.ArrayList;
 import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.ClaseBase;
 import habilidades.Habilidad;
+import razas.InterfasesClasesNoConcretas.HerenciaParaTodasLasRazas;
 import recursos.Recursos;
 
-public abstract class RazaBase <T extends ClaseBase> {
+public abstract class RazaBase <T extends HerenciaParaTodasLasRazas> {
 	public static enum POSIBLES_ALIANZAS {
 		EXILIADOS,
 		GUARDIANES,

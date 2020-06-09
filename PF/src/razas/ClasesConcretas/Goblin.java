@@ -2,10 +2,10 @@ package razas.ClasesConcretas;
 
 import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.ClaseBase;
-import razas.Exiliados;
+import razas.ClasesNoConcretas.Exiliados;
+import razas.InterfacesClasesConcretas.HerenciaGoblin;
 
-public class Goblin <T extends ClaseBase> extends Exiliados<T> {
+public class Goblin <T extends HerenciaGoblin> extends Exiliados<T> {
 	public Goblin(String nickname,T clase) {
 		super(nickname, clase);
 	}

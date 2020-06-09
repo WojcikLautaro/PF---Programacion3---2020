@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import atributes.AtributeMultipliers;
 import habilidades.Habilidad;
-import razas.RazaBase.POSIBLES_CLASES;
+import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
 import recursos.MaximosRecursos;
 import recursos.Recursos;
 

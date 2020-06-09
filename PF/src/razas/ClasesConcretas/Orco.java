@@ -2,10 +2,10 @@ package razas.ClasesConcretas;
 
 import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.ClaseBase;
-import razas.Exiliados;
+import razas.ClasesNoConcretas.Exiliados;
+import razas.InterfacesClasesConcretas.HerenciaOrca;
 
-public class Orco <T extends ClaseBase> extends Exiliados <T> {
+public class Orco <T extends HerenciaOrca> extends Exiliados <T> {
 	public Orco(String nickname,T clase) {
 		super(nickname, clase);
 	}

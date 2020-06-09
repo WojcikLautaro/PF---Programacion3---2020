@@ -2,10 +2,10 @@ package razas.ClasesConcretas;
 
 import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.ClaseBase;
-import razas.Exiliados;
+import razas.ClasesNoConcretas.Exiliados;
+import razas.InterfacesClasesConcretas.HerenciaNoMuerta;
 
-public class NoMuerto <T extends ClaseBase> extends Exiliados<T> {
+public class NoMuerto <T extends HerenciaNoMuerta> extends Exiliados<T> {
 	public NoMuerto(String nickname,T clase) {
 		super(nickname, clase);
 	}

@@ -2,10 +2,10 @@ package razas.ClasesConcretas;
 
 import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.ClaseBase;
-import razas.RazaBase;
+import razas.ClasesNoConcretas.RazaBase;
+import razas.InterfacesClasesConcretas.HerenciaHumana;
 
-public class Humano <T extends ClaseBase> extends RazaBase<T> {
+public class Humano <T extends HerenciaHumana> extends RazaBase<T> {
 	public Humano(String nickname,T clase) {
 		super(nickname, clase);
 		// TODO Auto-generated constructor stub

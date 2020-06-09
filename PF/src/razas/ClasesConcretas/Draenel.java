@@ -2,10 +2,10 @@ package razas.ClasesConcretas;
 
 import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.ClaseBase;
-import razas.RazaBase;
+import razas.ClasesNoConcretas.RazaBase;
+import razas.InterfacesClasesConcretas.HerenciaDraenelana;
 
-public class Draenel <T extends ClaseBase> extends RazaBase<T> {
+public class Draenel <T extends HerenciaDraenelana> extends RazaBase<T> {
 	public Draenel(String nickname,T clase) {
 		super(nickname, clase);
 	}

@@ -2,10 +2,10 @@ package razas.ClasesConcretas;
 
 import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.ClaseBase;
-import razas.Exiliados;
+import razas.ClasesNoConcretas.Exiliados;
+import razas.InterfacesClasesConcretas.HerenciaTroll;
 
-public class Trol <T extends ClaseBase> extends Exiliados<T> {
+public class Trol <T extends HerenciaTroll> extends Exiliados<T> {
 	public Trol(String nickname,T clase) {
 		super(nickname, clase);
 	}

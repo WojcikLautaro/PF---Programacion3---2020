@@ -2,10 +2,10 @@ package razas.ClasesConcretas;
 
 import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.ClaseBase;
-import razas.RazaBase;
+import razas.ClasesNoConcretas.RazaBase;
+import razas.InterfacesClasesConcretas.HerenciaEnana;
 
-public class Enano <T extends ClaseBase> extends RazaBase<T> {
+public class Enano <T extends HerenciaEnana> extends RazaBase<T> {
 	public Enano(String nickname,T clase) {
 		super(nickname, clase);
 	}

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 import atributes.AtributeMultipliers;
 import habilidades.Habilidad;
-import razas.RazaBase.POSIBLES_CLASES;
+import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
 import recursos.Recursos;
 
 public abstract class ClaseBase {

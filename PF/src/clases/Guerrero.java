@@ -4,11 +4,16 @@ import java.util.ArrayList;
 
 import atributes.AtributeMultipliers;
 import habilidades.Habilidad;
-import razas.RazaBase.POSIBLES_CLASES;
+import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
+import razas.InterfacesClasesConcretas.HerenciaEnana;
+import razas.InterfacesClasesConcretas.HerenciaGoblin;
+import razas.InterfacesClasesConcretas.HerenciaHumana;
+import razas.InterfacesClasesConcretas.HerenciaOrca;
+import razas.InterfacesClasesConcretas.HerenciaTroll;
 import recursos.MaximosRecursos;
 import recursos.Recursos;
 
-public class Guerrero extends ClaseBase {
+public class Guerrero extends ClaseBase implements HerenciaOrca, HerenciaTroll, HerenciaGoblin, HerenciaHumana, HerenciaEnana  {
 	@Override
 	public POSIBLES_CLASES getEnumDeClase () {
 		return POSIBLES_CLASES.GUERRERO;

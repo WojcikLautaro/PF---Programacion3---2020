@@ -2,10 +2,10 @@ package razas.ClasesConcretas;
 
 import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.ClaseBase;
-import razas.RazaBase;
+import razas.ClasesNoConcretas.RazaBase;
+import razas.InterfacesClasesConcretas.HerenciaElfa;
 
-public class Elfo <T extends ClaseBase> extends RazaBase<T> {
+public class Elfo <T extends HerenciaElfa> extends RazaBase<T> {
 	public Elfo(String nickname,T clase) {
 		super(nickname, clase);
 	}

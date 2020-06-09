@@ -1,9 +1,9 @@
-package razas;
+package razas.ClasesNoConcretas;
 
 import atributes.Atributes;
-import clases.ClaseBase;
+import razas.InterfasesClasesNoConcretas.HerenciaParaExiliados;
 
-public abstract class Exiliados <T extends ClaseBase> extends RazaBase <T> {
+public abstract class Exiliados <T extends HerenciaParaExiliados> extends RazaBase <T> {
 	public Exiliados(String nickname,T clase) {
 		super(nickname, clase);
 		// TODO Auto-generated constructor stub
