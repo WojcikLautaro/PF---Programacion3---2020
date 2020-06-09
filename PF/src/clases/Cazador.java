@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 import atributes.AtributeMultipliers;
 import habilidades.Habilidad;
-import razas.RazaBase.POSIBLES_CLASES;
+import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
+import razas.InterfacesClasesConcretas.HerenciaHumana;
+import razas.InterfacesClasesConcretas.HerenciaOrca;
 import recursos.MaximosRecursos;
 import recursos.Recursos;
 
-public class Cazador extends ClaseBase {
+public class Cazador extends ClaseBase implements HerenciaOrca, HerenciaHumana {
 	@Override
 	public POSIBLES_CLASES getEnumDeClase () {
 		return POSIBLES_CLASES.CAZADOR;
