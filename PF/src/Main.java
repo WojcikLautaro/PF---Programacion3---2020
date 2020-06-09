@@ -25,15 +25,6 @@ public class Main {
 	// PROBANDO MODIFICACIÓN DE PULL Y PUSH EN GIT.
 	// Probando modif con new branch.
 	
-	/*
-	 * Orco -> Guerrero, Paladin, Picaro, Cazador
-	 * Trol -> Guerrero, Brujo
-	 * Goblin -> Picaro, Guerrero, Brujo
-	 * No muerto -> Brujo, Sacerdote, Mago
-	 * 
-	 * Humano -> Guerrero, Paladin, Picaro, Cazador
-	 * Elfo -> Druida, Brujo, Sacerdote, Mago
-	 * Enano -> Picaro, Guerrero, Paladin
-	 * Draenel -> Brujo, Sacerdote, Mago
-	 */
+	// Probando modif con new branch.
+	
 }
