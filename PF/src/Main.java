@@ -11,8 +11,11 @@ public class Main {
 		ArrayList<RazaBase<?>> personajes = new ArrayList <> ();
 		personajes.add(new Orco<> ("Fernando", new Guerrero()));
 		personajes.add(new Trol<> ("Mago", new Mago()));
-	
+
 		System.out.println(personajes.get(0));
 		System.out.println(personajes.get(1));
 	}
+  
+	// PROBANDO MODIFICACIÓN DE PULL Y PUSH EN GIT.
+	// Probando modif con new branch.
 }
