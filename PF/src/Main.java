@@ -20,6 +20,13 @@ public class Main {
 		for (RazaBase<?> aux : personajes) {
 			System.out.println(aux);
 		}
+		
+		/* Realizar la implementacion de una clase, que administre un conjunto de personajes y que sea serializable.
+		 * El sistema tiene que ser tal que haya relacionado un string unico a un conjunto de personajes
+		 */
+		
+		/* Cambier el contructor de personajes tal que uno requiera el nombre del personaje y otro el nombre y el nivel
+		 */
 	}
   
 	// PROBANDO MODIFICACIÓN DE PULL Y PUSH EN GIT.
