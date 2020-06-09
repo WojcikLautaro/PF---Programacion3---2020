@@ -7,7 +7,7 @@ import clases.ClaseBase;
 import habilidades.Habilidad;
 import recursos.Recursos;
 
-public abstract class RazaBase <T extends ClaseBase>{
+public abstract class RazaBase <T extends ClaseBase> {
 	public static enum POSIBLES_ALIANZAS {
 		EXILIADOS,
 		GUARDIANES,
@@ -60,8 +60,8 @@ public abstract class RazaBase <T extends ClaseBase>{
 	 * Draenel -> Brujo, Sacerdote, Mago
 	 */
 	
-	protected POSIBLES_ALIANZAS aliance;
-	protected POSIBLES_RAZAS race;
+	protected POSIBLES_ALIANZAS alianza;
+	protected POSIBLES_RAZAS raza;
 	protected POSIBLES_CLASES clase;
 	
 	protected String characterDescription;
@@ -78,15 +78,15 @@ public abstract class RazaBase <T extends ClaseBase>{
 	 * @return Devuelve un objeto de la clase "BaseRace" nuevo. este metodo esta dedicado a personajes recien creados.
 	 */
 	
-	public RazaBase (String nickname) {
-		this.atributes = new Atributes (getBaseAtributesFromRace(), T.getMultiplicadorDeAtributosDeClase());
+	public RazaBase (String nickname, T clase) {
+		this.atributes = new Atributes (getBaseAtributesFromRace(), clase.getMultiplicadorDeAtributosDeClase());
 		
-		this.resources = T.getClassResources();
-		this.abilities = new ArrayList <> (T.getClassAbilities());
+		this.resources = clase.getClassResources();
+		this.abilities = new ArrayList <> (clase.getClassAbilities());
 		
-		this.clase = T.getEnumDeClase ();
-		this.race = getEnumRace ();
-		this.aliance = getEnumAliance ();
+		this.clase = clase.getEnumDeClase ();
+		this.raza = getEnumRace ();
+		this.alianza = getEnumAliance ();
 		
 		this.characterDescription = getDescripcionDePersonaje ();
 		this.nick = nickname;
@@ -94,8 +94,8 @@ public abstract class RazaBase <T extends ClaseBase>{
 		this.experiencia = 0;
 	}
 	
-	public RazaBase (String nickname, Atributes attr, int lvl) {
-		this(nickname);
+	public RazaBase (String nickname, T clase, Atributes attr, int lvl) {
+		this(nickname, clase);
 		
 		this.atributes = new Atributes (getBaseAtributesFromRace());
 		this.lvl = lvl;
@@ -104,6 +104,53 @@ public abstract class RazaBase <T extends ClaseBase>{
 	protected abstract POSIBLES_RAZAS getEnumRace ();
 	protected abstract POSIBLES_ALIANZAS getEnumAliance ();
 	protected abstract String getDescripcionDePersonaje ();
-	
 	protected abstract AtributosBase getBaseAtributesFromRace ();
+	
+	
+	public POSIBLES_RAZAS getNombreDeRaza () {
+		return this.raza;
+	}
+	
+	public POSIBLES_CLASES getNombreDeClase () {
+		return this.clase;
+	}
+	
+	public POSIBLES_ALIANZAS getNombreDeAlianza () {
+		return this.alianza;
+	}
+	
+	public String getCharacterDescription () {
+		return this.characterDescription;
+	}
+	
+	public String getNick () {
+		return this.nick;
+	}
+	
+	public Integer getLvl () {
+		return this.lvl;
+	}
+	
+	public ArrayList <Habilidad> getHabilidades () {
+		return new ArrayList <> ();
+	}
+	
+	@Override
+	public String toString () {
+		StringBuilder output = new StringBuilder();
+		
+		output.append(getNick());
+		output.append(" ");
+		output.append(getLvl());
+		output.append(" ");
+		output.append(getNombreDeAlianza());
+		output.append(" ");
+		output.append(getNombreDeRaza());
+		output.append(" ");
+		output.append(getNombreDeClase());
+		output.append(" ");
+		output.append(getCharacterDescription());
+		
+		return output.toString();
+	}
 }
