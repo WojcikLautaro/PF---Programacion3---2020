@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 import clases.Brujo;
-import clases.Guerrero;ss
+import clases.Guerrero;
 import clases.Paladin;
 import razas.ClasesConcretas.Humano;
 import razas.ClasesConcretas.NoMuerto;
