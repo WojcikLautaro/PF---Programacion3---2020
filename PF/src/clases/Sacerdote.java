@@ -5,13 +5,10 @@ import java.util.ArrayList;
 import atributes.AtributeMultipliers;
 import habilidades.Habilidad;
 import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
-import razas.InterfacesClasesConcretas.HerenciaDraenelana;
-import razas.InterfacesClasesConcretas.HerenciaElfa;
-import razas.InterfacesClasesConcretas.HerenciaNoMuerta;
 import recursos.MaximosRecursos;
 import recursos.Recursos;
 
-public class Sacerdote extends ClaseBase implements HerenciaNoMuerta, HerenciaElfa, HerenciaDraenelana {
+public class Sacerdote extends ClaseBase {
 	@Override
 	public POSIBLES_CLASES getEnumDeClase () {
 		return POSIBLES_CLASES.SACERDOTE;

@@ -2,16 +2,16 @@ package razas.ClasesConcretas;
 
 import atributes.Atributes;
 import atributes.AtributosBase;
+import clases.ClaseBase;
 import razas.ClasesNoConcretas.RazaBase;
-import razas.InterfacesClasesConcretas.HerenciaDraenelana;
 
-public class Draenel <T extends HerenciaDraenelana> extends RazaBase<T> {
-	public Draenel(String nickname,T clase) {
+public class Draenel <T extends ClaseBase> extends RazaBase<T> {
+	public Draenel(String nickname,T clase) throws Exception {
 		super(nickname, clase);
 	}
 	
-	public Draenel(String nickname,T clase, Atributes attr, int lvl) {
-		super(nickname, clase, attr, lvl);
+	public Draenel(String nickname,T clase, Atributes attr, int lvl) throws Exception {
+		super(nickname, clase, lvl);
 	}
 
 	@Override
@@ -43,5 +43,19 @@ public class Draenel <T extends HerenciaDraenelana> extends RazaBase<T> {
 				);
 
 		return base;
+	}
+	
+	@Override
+	protected boolean getEsUnaClaseAceptada(razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
+		switch (c) {
+			case BRUJO:
+				return true;
+			case SACERDOTE:
+				return true;
+			case MAGO:
+				return true;
+			default: 
+				return false;
+		}
 	}
 }

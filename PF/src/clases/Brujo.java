@@ -5,15 +5,10 @@ import java.util.ArrayList;
 import atributes.AtributeMultipliers;
 import habilidades.Habilidad;
 import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
-import razas.InterfacesClasesConcretas.HerenciaDraenelana;
-import razas.InterfacesClasesConcretas.HerenciaElfa;
-import razas.InterfacesClasesConcretas.HerenciaGoblin;
-import razas.InterfacesClasesConcretas.HerenciaNoMuerta;
-import razas.InterfacesClasesConcretas.HerenciaTroll;
 import recursos.MaximosRecursos;
 import recursos.Recursos;
 
-public class Brujo extends ClaseBase implements HerenciaTroll, HerenciaGoblin, HerenciaNoMuerta, HerenciaElfa, HerenciaDraenelana {
+public class Brujo extends ClaseBase {
 	@Override
 	public POSIBLES_CLASES getEnumDeClase () {
 		return POSIBLES_CLASES.BRUJO;
