@@ -2,6 +2,13 @@ package razas.ClasesConcretas;
 
 import atributes.Atributes;
 import atributes.AtributosBase;
+
+import clases.interfaces.IMage;
+import razas.ClasesNoConcretas.RazaBase;
+import razas.InterfacesClasesConcretas.HerenciaDraenelana;
+
+public class Draenel <T extends HerenciaDraenelana> extends RazaBase<T>{
+
 import razas.ClasesNoConcretas.RazaBase;
 import razas.InterfacesClasesConcretas.HerenciaDraenelana;
 
