@@ -26,6 +26,7 @@ public class Main {
 		 */
 		
 		/* Cambier el contructor de personajes tal que uno requiera el nombre del personaje y otro el nombre y el nivel
+		 * Para asi solamente necesitar guardadr el nivel y nobre de personajes asociados a un nombre de usuario
 		 */
 	}
   
