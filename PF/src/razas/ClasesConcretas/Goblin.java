@@ -1,17 +1,16 @@
 package razas.ClasesConcretas;
 
-import atributes.Atributes;
 import atributes.AtributosBase;
+import clases.ClaseBase;
 import razas.ClasesNoConcretas.Exiliados;
-import razas.InterfacesClasesConcretas.HerenciaGoblin;
 
-public class Goblin <T extends HerenciaGoblin> extends Exiliados<T> {
-	public Goblin(String nickname,T clase) {
+public class Goblin <T extends ClaseBase> extends Exiliados<T> {
+	public Goblin(String nickname,T clase) throws Exception {
 		super(nickname, clase);
 	}
 	
-	public Goblin(String nickname, T clase, Atributes attr, int lvl) {
-		super(nickname, clase, attr, lvl);
+	public Goblin(String nickname, T clase, int lvl) throws Exception {
+		super(nickname, clase, lvl);
 	}
 
 	@Override
@@ -44,5 +43,19 @@ public class Goblin <T extends HerenciaGoblin> extends Exiliados<T> {
 				);
 
 		return base;
+	}
+	
+	@Override
+	protected boolean getEsUnaClaseAceptada(razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
+		switch (c) {
+			case PÍCARO:
+				return true;
+			case GUERRERO:
+				return true;
+			case BRUJO:
+				return true;
+			default: 
+				return false;
+		}
 	}
 }

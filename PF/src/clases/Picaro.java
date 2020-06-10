@@ -5,14 +5,10 @@ import java.util.ArrayList;
 import atributes.AtributeMultipliers;
 import habilidades.Habilidad;
 import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
-import razas.InterfacesClasesConcretas.HerenciaEnana;
-import razas.InterfacesClasesConcretas.HerenciaGoblin;
-import razas.InterfacesClasesConcretas.HerenciaHumana;
-import razas.InterfacesClasesConcretas.HerenciaOrca;
 import recursos.MaximosRecursos;
 import recursos.Recursos;
 
-public class Picaro extends ClaseBase implements HerenciaOrca, HerenciaGoblin, HerenciaHumana, HerenciaEnana {
+public class Picaro extends ClaseBase {
 	@Override
 	public POSIBLES_CLASES getEnumDeClase () {
 		return POSIBLES_CLASES.PÍCARO;
