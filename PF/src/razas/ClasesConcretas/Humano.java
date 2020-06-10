@@ -2,28 +2,23 @@ package razas.ClasesConcretas;
 
 import atributes.Atributes;
 import atributes.AtributosBase;
-
-import clases.interfaces.IMage;
 import razas.ClasesNoConcretas.RazaBase;
-import razas.InterfacesClasesConcretas.HerenciaDraenelana;
+import razas.InterfacesClasesConcretas.HerenciaHumana;
 
-public class Draenel <T extends HerenciaDraenelana> extends RazaBase<T>{
-
-import razas.ClasesNoConcretas.RazaBase;
-import razas.InterfacesClasesConcretas.HerenciaDraenelana;
-
-public class Draenel <T extends HerenciaDraenelana> extends RazaBase<T> {
-	public Draenel(String nickname,T clase) {
+public class Humano <T extends HerenciaHumana> extends RazaBase<T> {
+	public Humano(String nickname,T clase) {
 		super(nickname, clase);
+		// TODO Auto-generated constructor stub
 	}
 	
-	public Draenel(String nickname,T clase, Atributes attr, int lvl) {
+	public Humano(String nickname,T clase, Atributes attr, int lvl) {
 		super(nickname, clase, attr, lvl);
+		// TODO Auto-generated constructor stub
 	}
-
+	
 	@Override
 	protected POSIBLES_RAZAS getEnumRace() {
-		return POSIBLES_RAZAS.DRAENEL;
+		return POSIBLES_RAZAS.HUMANO;
 	}
 
 	@Override
@@ -33,7 +28,7 @@ public class Draenel <T extends HerenciaDraenelana> extends RazaBase<T> {
 
 	@Override
 	protected String getDescripcionDePersonaje() {
-		return "Un draenel";
+		return "Un humano";
 	}
 
 	@Override
