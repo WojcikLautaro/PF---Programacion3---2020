@@ -184,7 +184,8 @@ public class AdministradorDePersonajes  {
 	}
 
 	public void añadirUsuario (String nombreDeUsuario) {
-		this.personajesPorUsuarios.put(nombreDeUsuario, new ArrayList <> ());
+		if(!this.personajesPorUsuarios.containsKey(nombreDeUsuario)) 
+			this.personajesPorUsuarios.put(nombreDeUsuario, new ArrayList <> ());
 	}
 	
 	public void borrarUsuario (String nombreDeUsuario) {
