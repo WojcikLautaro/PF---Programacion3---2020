@@ -4,19 +4,7 @@ import atributes.AtributosBase;
 import clases.ClaseBase;
 import razas.ClasesNoConcretas.Exiliados;
 
-public class Orco <T extends ClaseBase> extends Exiliados <T> {
-	public static enum POSIBLES_CLASES {
-		GUERRERO, 
-		PALADÍN, 
-		CAZADOR, 
-		PÍCARO, 
-		SACERDOTE, 
-		MAGO,
-		BRUJO,
-		DRUIDA,
-		SIN_CLASE
-	}
-	
+public class Orco <T extends ClaseBase> extends Exiliados <T> {	
 	public Orco(String nickname,T clase) throws Exception {
 		super(nickname, clase);
 	}
