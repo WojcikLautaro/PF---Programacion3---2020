@@ -30,6 +30,14 @@ public class Main {
 		admin.añadirUsuario("usuarioD");
 		admin.añadirUsuario("usuarioA");
 		
+		try {
+			System.out.println("Result: " + admin.getPersonajeDeUsuario("usuarioB", "Flor"));
+		} catch (Exception e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
+		
 		for (RazaBase<?> aux : personajes) {
 			try {
 				//admin.añadirPersonajeAUsuario("usuarioB", aux);

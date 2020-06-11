@@ -215,6 +215,17 @@ public class AdministradorDePersonajes  {
 		this.personajesPorUsuarios.get(nombreDeUsuario).add(nuevoPersonaje);
 	}
 	
+	public RazaBase<?> getPersonajeDeUsuario (String nombreDeUsuario, String nombreDePersonaje) throws Exception {
+		if(!this.personajesPorUsuarios.containsKey(nombreDeUsuario))
+			throw new Exception();
+		
+		for(RazaBase<?> aux : this.personajesPorUsuarios.get(nombreDeUsuario))
+			if(aux.getNick().equals(nombreDePersonaje)) 
+				return aux;
+	
+		return null;
+	}
+	
 	public void borrarPersonajeDeUsuario (String nombreDeUsuario, RazaBase<?> personaje) throws Exception {
 		if(!this.personajesPorUsuarios.containsKey(nombreDeUsuario))
 			throw new Exception();
