@@ -1,6 +1,6 @@
 package razas.ClasesNoConcretas;
 
-import clases.ClaseBase;
+import clases.interfaces.ClaseBase;
 
 public abstract class Guardianes <T extends ClaseBase> extends RazaBase <T> {
 	public Guardianes(String nickname, T clase) throws Exception {

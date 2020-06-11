@@ -5,13 +5,13 @@ import atributes.Atributes;
 import atributes.AtributosBase;
 import clases.Brujo;
 import clases.Cazador;
-import clases.ClaseBase;
 import clases.Druida;
 import clases.Guerrero;
 import clases.Mago;
 import clases.Paladin;
 import clases.Picaro;
 import clases.Sacerdote;
+import clases.interfaces.ClaseBase;
 import habilidades.Habilidad;
 import razas.ClasesConcretas.Draenel;
 import razas.ClasesConcretas.Elfo;
@@ -327,6 +327,10 @@ public abstract class RazaBase<T extends ClaseBase> {
 		}
 
 		throw new Exception();
+	}
+	
+	public static RazaBase<?> getNuevoPersonaje(POSIBLES_RAZAS raza, POSIBLES_CLASES clase, String nick) throws Exception {
+		return getNuevoPersonaje(raza, clase, nick, 0);
 	}
 
 	@Override

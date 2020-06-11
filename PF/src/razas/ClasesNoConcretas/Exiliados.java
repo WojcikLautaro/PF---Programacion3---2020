@@ -1,6 +1,6 @@
 package razas.ClasesNoConcretas;
 
-import clases.ClaseBase;
+import clases.interfaces.ClaseBase;
 
 public abstract class Exiliados <T extends ClaseBase> extends RazaBase <T> {
 	public Exiliados(String nickname,T clase) throws Exception {

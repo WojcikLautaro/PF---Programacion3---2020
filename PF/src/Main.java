@@ -15,7 +15,8 @@ public class Main {
 	public static void main(String[] args) {
 	ArrayList<RazaBase<?>> personajes = new ArrayList <> ();
 		
-		try {
+		try {	
+			personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.HUMANO, RazaBase.POSIBLES_CLASES.MAGO, "Flor"));
 			personajes.add(new Orco		<> ("Guerrero"	, new Guerrero()));
 			personajes.add(new Trol		<> ("Mago"		, new Guerrero()));
 			personajes.add(new NoMuerto	<> ("Luis"		, new Brujo()));
@@ -42,7 +43,7 @@ public class Main {
 		admin.personajesPorUsuarios.put("usuarioB", new ArrayList <> ());
 		admin.personajesPorUsuarios.put("usuarioC", new ArrayList <> ());
 		admin.personajesPorUsuarios.put("usuarioD", new ArrayList <> ());
-
+		 
 		System.out.println(admin.personajesPorUsuarios);
 		
 		try {

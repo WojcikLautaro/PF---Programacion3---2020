@@ -1,7 +1,7 @@
 package razas.ClasesConcretas;
 
 import atributes.AtributosBase;
-import clases.ClaseBase;
+import clases.interfaces.ClaseBase;
 import razas.ClasesNoConcretas.RazaBase;
 
 public class Elfo <T extends ClaseBase> extends RazaBase<T> {

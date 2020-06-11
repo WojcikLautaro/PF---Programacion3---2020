@@ -18,7 +18,6 @@ import razas.ClasesNoConcretas.RazaBase;
 import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
 import razas.ClasesNoConcretas.RazaBase.POSIBLES_RAZAS;
 
-
 public class AdministradorDePersonajes  {
 	public HashMap<String, ArrayList<RazaBase<?>>> personajesPorUsuarios;
 	

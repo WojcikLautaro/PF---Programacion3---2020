@@ -3,12 +3,13 @@ package clases;
 import java.util.ArrayList;
 
 import atributes.AtributeMultipliers;
+import clases.interfaces.ClaseBase;
 import habilidades.Habilidad;
 import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
 import recursos.MaximosRecursos;
 import recursos.Recursos;
 
-public class Brujo extends ClaseBase {
+public class Brujo implements ClaseBase {
 	@Override
 	public POSIBLES_CLASES getEnumDeClase () {
 		return POSIBLES_CLASES.BRUJO;
