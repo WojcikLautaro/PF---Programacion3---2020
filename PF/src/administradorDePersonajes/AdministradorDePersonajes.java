@@ -19,7 +19,7 @@ import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
 import razas.ClasesNoConcretas.RazaBase.POSIBLES_RAZAS;
 
 public class AdministradorDePersonajes  {
-	public HashMap<String, ArrayList<RazaBase<?>>> personajesPorUsuarios;
+	protected HashMap<String, ArrayList<RazaBase<?>>> personajesPorUsuarios;
 	
 	public AdministradorDePersonajes() {
 		personajesPorUsuarios = new HashMap <> ();
@@ -157,7 +157,7 @@ public class AdministradorDePersonajes  {
 		AdministradorDePersonajes admin;
 		
 		try {
-			objectInputStream = new ObjectInputStream(new FileInputStream("file.dat"));
+			objectInputStream = new ObjectInputStream(new FileInputStream(nombreDeArchivo));
 			
 
 			try {
@@ -178,8 +178,59 @@ public class AdministradorDePersonajes  {
 	}
 	
 	public void guardar (String nombreDeArchivo) throws IOException {
-		ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("file.dat"));
+		ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(nombreDeArchivo));
 		objectOutputStream.writeObject(toJSONObject(this.personajesPorUsuarios).toString());	
 		objectOutputStream.close();
+	}
+
+	public void añadirUsuario (String nombreDeUsuario) {
+		this.personajesPorUsuarios.put(nombreDeUsuario, new ArrayList <> ());
+	}
+	
+	public void borrarUsuario (String nombreDeUsuario) {
+		this.personajesPorUsuarios.remove(nombreDeUsuario);
+	}
+	
+	public void cambiarNombreDeUsuario (String nombreDeUsuario, String nuevoNombreDeUsuario) throws Exception {
+		if(this.personajesPorUsuarios.containsKey(nuevoNombreDeUsuario) || !this.personajesPorUsuarios.containsKey(nuevoNombreDeUsuario))
+			throw new Exception();
+		
+		ArrayList<RazaBase<?>> auxPersonajes = this.personajesPorUsuarios.get(nombreDeUsuario);
+		this.personajesPorUsuarios.put(nuevoNombreDeUsuario, auxPersonajes);
+		this.personajesPorUsuarios.remove(nombreDeUsuario);
+	}
+	
+	public ArrayList<RazaBase<?>> getPersonajesDeUsuario (String nombreDeUsuario) {
+		return this.personajesPorUsuarios.get(nombreDeUsuario);
+	}
+	
+	public void añadirPersonajeAUsuario (String nombreDeUsuario, RazaBase<?> nuevoPersonaje) throws Exception {
+		if(!this.personajesPorUsuarios.containsKey(nombreDeUsuario))
+			añadirUsuario(nombreDeUsuario);
+		
+		if(this.personajesPorUsuarios.get(nombreDeUsuario).contains(nuevoPersonaje))
+			throw new Exception();
+		
+		this.personajesPorUsuarios.get(nombreDeUsuario).add(nuevoPersonaje);
+	}
+	
+	public void borrarPersonajeDeUsuario (String nombreDeUsuario, RazaBase<?> personaje) throws Exception {
+		if(!this.personajesPorUsuarios.containsKey(nombreDeUsuario))
+			throw new Exception();
+		
+		this.personajesPorUsuarios.get(nombreDeUsuario).remove(personaje);
+	}
+	
+	public void cambiarPersonajeDeUsuario (String nombreDeUsuario, RazaBase<?> personaje, RazaBase<?> nuevoPersonaje) throws Exception {
+		if(this.personajesPorUsuarios.get(nombreDeUsuario).contains(nuevoPersonaje))
+			throw new Exception();
+		
+		borrarPersonajeDeUsuario(nombreDeUsuario, personaje);
+		añadirPersonajeAUsuario(nombreDeUsuario, nuevoPersonaje);
+	}
+	
+	@Override
+	public String toString() {
+		return this.personajesPorUsuarios.toString();
 	}
 }

@@ -338,17 +338,31 @@ public abstract class RazaBase<T extends ClaseBase> {
 		StringBuilder output = new StringBuilder();
 
 		output.append(getNick());
-		output.append(" ");
+		output.append(" "); //$NON-NLS-1$
 		output.append(getLvl());
-		output.append(" ");
+		output.append(" "); //$NON-NLS-1$
 		output.append(getNombreDeAlianza());
-		output.append(" ");
+		output.append(" "); //$NON-NLS-1$
 		output.append(getNombreDeRaza());
-		output.append(" ");
+		output.append(" "); //$NON-NLS-1$
 		output.append(getNombreDeClase());
-		output.append(" ");
+		output.append(" "); //$NON-NLS-1$
 		output.append(getCharacterDescription());
 
 		return output.toString();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof RazaBase<?>)
+			if(this.getNick() == ((RazaBase<?>)obj).getNick())
+				return true;
+		
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return 0;
 	}
 }
