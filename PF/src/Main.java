@@ -24,18 +24,16 @@ public class Main {
 		 */
 
 		AdministradorDePersonajes admin = AdministradorDePersonajes.cargar("file.dat");
-		/*admin.añadirUsuario("usuarioA");
+		admin.añadirUsuario("usuarioA");
 		admin.añadirUsuario("usuarioB");
 		admin.añadirUsuario("usuarioC");
 		admin.añadirUsuario("usuarioD");
-		*/
 		admin.añadirUsuario("usuarioA");
 		
 		for (RazaBase<?> aux : personajes) {
 			try {
-				//admin.añadirPersonajeAUsuario("usuarioA", aux);
+				//admin.añadirPersonajeAUsuario("usuarioB", aux);
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}

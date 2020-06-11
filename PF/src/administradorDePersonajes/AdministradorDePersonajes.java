@@ -223,10 +223,15 @@ public class AdministradorDePersonajes  {
 	}
 	
 	public void cambiarPersonajeDeUsuario (String nombreDeUsuario, RazaBase<?> personaje, RazaBase<?> nuevoPersonaje) throws Exception {
-		if(this.personajesPorUsuarios.get(nombreDeUsuario).contains(nuevoPersonaje))
-			throw new Exception();
+		RazaBase<?> aux = personaje;
 		
 		borrarPersonajeDeUsuario(nombreDeUsuario, personaje);
+		
+		if(this.personajesPorUsuarios.get(nombreDeUsuario).contains(nuevoPersonaje)) {
+			añadirPersonajeAUsuario(nombreDeUsuario, aux);
+			throw new Exception();
+		}
+			
 		añadirPersonajeAUsuario(nombreDeUsuario, nuevoPersonaje);
 	}
 	
