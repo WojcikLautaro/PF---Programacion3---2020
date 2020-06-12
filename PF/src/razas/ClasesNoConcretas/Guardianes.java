@@ -1,15 +1,16 @@
 package razas.ClasesNoConcretas;
 
-import clases.interfaces.ClaseBase;
+import atributes.Atributes;
+import razas.InterfasesClasesNoConcretas.HerenciaParaGuardianes;
 
-public abstract class Guardianes <T extends ClaseBase> extends RazaBase <T> {
-	public Guardianes(String nickname, T clase) throws Exception {
+public abstract class Guardianes <T extends HerenciaParaGuardianes> extends RazaBase <T> {
+	public Guardianes(String nickname, T clase) {
 		super(nickname, clase);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Guardianes(String nickname, T clase, int lvl) throws Exception {
-		super(nickname, clase, lvl);
+	public Guardianes(String nickname, T clase, Atributes attr, int lvl) {
+		super(nickname, clase, attr, lvl);
 		// TODO Auto-generated constructor stub
 	}
 	

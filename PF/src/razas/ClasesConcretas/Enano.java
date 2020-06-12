@@ -1,16 +1,17 @@
 package razas.ClasesConcretas;
 
+import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.interfaces.ClaseBase;
 import razas.ClasesNoConcretas.RazaBase;
+import razas.InterfacesClasesConcretas.HerenciaEnana;
 
-public class Enano <T extends ClaseBase> extends RazaBase<T> {
-	public Enano(String nickname,T clase) throws Exception {
+public class Enano <T extends HerenciaEnana> extends RazaBase<T> {
+	public Enano(String nickname,T clase) {
 		super(nickname, clase);
 	}
 	
-	public Enano(String nickname,T clase, int lvl) throws Exception {
-		super(nickname, clase, lvl);
+	public Enano(String nickname,T clase, Atributes attr, int lvl) {
+		super(nickname, clase, attr, lvl);
 	}
 
 	@Override
@@ -42,19 +43,5 @@ public class Enano <T extends ClaseBase> extends RazaBase<T> {
 				);
 
 		return base;
-	}
-	
-	@Override
-	protected boolean getEsUnaClaseAceptada(razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
-		switch (c) {
-			case PÍCARO:
-				return true;
-			case GUERRERO:
-				return true;
-			case PALADÍN:
-				return true;
-			default: 
-				return false;
-		}
 	}
 }

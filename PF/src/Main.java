@@ -1,57 +1,30 @@
-import java.io.IOException;
 import java.util.ArrayList;
 
-import administradorDePersonajes.AdministradorDePersonajes;
+import clases.Brujo;
+import clases.Guerrero;
+import clases.Paladin;
+import razas.ClasesConcretas.Humano;
+import razas.ClasesConcretas.NoMuerto;
+import razas.ClasesConcretas.Orco;
+import razas.ClasesConcretas.Trol;
 import razas.ClasesNoConcretas.RazaBase;
 
 public class Main {
 	public static void main(String[] args) {
-	ArrayList<RazaBase<?>> personajes = new ArrayList <> ();
-		try {	
-			personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.HUMANO, 	RazaBase.POSIBLES_CLASES.PALADÍN, 	"Flor"));
-			personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.ORCO, 	RazaBase.POSIBLES_CLASES.GUERRERO, 	"Guerrero"));
-			personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.TROL, 	RazaBase.POSIBLES_CLASES.GUERRERO, 	"Mago"));
-			personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.NOMUERTO, RazaBase.POSIBLES_CLASES.BRUJO, 	"Luis"));
-			personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.HUMANO, 	RazaBase.POSIBLES_CLASES.PALADÍN, 	"Sancho"));
-		} 
-		
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		/* Realizar la implementacion de una clase, que administre un conjunto de personajes y que sea serializable.
-		 * El sistema tiene que ser tal que haya relacionado un string unico a un conjunto de personajes
-		 */
+		ArrayList<RazaBase<?>> personajes = new ArrayList <> ();
+		personajes.add(new Orco		<> ("Guerrero"	, new Guerrero()));
+		personajes.add(new Trol		<> ("Mago"		, new Guerrero()));
+		personajes.add(new NoMuerto	<> ("Luis"		, new Brujo()));
+		personajes.add(new Humano	<> ("Sancho"	, new Paladin()));
 
-		AdministradorDePersonajes admin = AdministradorDePersonajes.cargar("file.dat");
-		admin.añadirUsuario("usuarioA");
-		admin.añadirUsuario("usuarioB");
-		admin.añadirUsuario("usuarioC");
-		admin.añadirUsuario("usuarioD");
-		admin.añadirUsuario("usuarioA");
-		
-		try {
-			System.out.println("Result: " + admin.getPersonajeDeUsuario("usuarioB", "Flor"));
-		} catch (Exception e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-		
-		
 		for (RazaBase<?> aux : personajes) {
-			try {
-				//admin.añadirPersonajeAUsuario("usuarioB", aux);
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
-		}
-		
-		System.out.println(admin.toString());
-		
-		try {
-			admin.guardar("file.dat");
-		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println(aux);
 		}
 	}
+  
+	// PROBANDO MODIFICACIÓN DE PULL Y PUSH EN GIT.
+	// Probando modif con new branch.
+	
+	// Probando modif con new branch.
+	
 }

@@ -1,16 +1,17 @@
 package razas.ClasesConcretas;
 
+import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.interfaces.ClaseBase;
 import razas.ClasesNoConcretas.Exiliados;
+import razas.InterfacesClasesConcretas.HerenciaOrca;
 
-public class Orco <T extends ClaseBase> extends Exiliados <T> {	
-	public Orco(String nickname,T clase) throws Exception {
+public class Orco <T extends HerenciaOrca> extends Exiliados <T> {
+	public Orco(String nickname,T clase) {
 		super(nickname, clase);
 	}
 	
-	public Orco(String nickname,T clase, int lvl) throws Exception {
-		super(nickname, clase, lvl);
+	public Orco(String nickname,T clase, Atributes attr, int lvl) {
+		super(nickname, clase, attr, lvl);
 	}
 
 	@Override
@@ -37,21 +38,5 @@ public class Orco <T extends ClaseBase> extends Exiliados <T> {
 				);
 
 		return base;
-	}
-	
-	@Override
-	protected boolean getEsUnaClaseAceptada(razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
-		switch (c) {
-			case GUERRERO:
-				return true;
-			case PALADÍN:
-				return true;
-			case PÍCARO:
-				return true;
-			case CAZADOR:
-				return true;
-			default: 
-				return false;
-		}
 	}
 }

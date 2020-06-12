@@ -3,13 +3,24 @@ package clases;
 import java.util.ArrayList;
 
 import atributes.AtributeMultipliers;
-import clases.interfaces.ClaseBase;
+
+import clases.interfaces.IMage;
+
 import habilidades.Habilidad;
 import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
+import razas.InterfacesClasesConcretas.HerenciaDraenelana;
+import razas.InterfacesClasesConcretas.HerenciaElfa;
+import razas.InterfacesClasesConcretas.HerenciaGoblin;
+import razas.InterfacesClasesConcretas.HerenciaNoMuerta;
+import razas.InterfacesClasesConcretas.HerenciaTroll;
 import recursos.MaximosRecursos;
 import recursos.Recursos;
 
-public class Brujo implements ClaseBase {
+
+public class Brujo extends ClaseBase implements IMage,HerenciaTroll, HerenciaGoblin, HerenciaNoMuerta, HerenciaElfa, HerenciaDraenelana {
+
+public class Brujo extends ClaseBase implements HerenciaTroll, HerenciaGoblin, HerenciaNoMuerta, HerenciaElfa, HerenciaDraenelana {
+
 	@Override
 	public POSIBLES_CLASES getEnumDeClase () {
 		return POSIBLES_CLASES.BRUJO;
@@ -28,5 +39,82 @@ public class Brujo implements ClaseBase {
 	@Override
 	public ArrayList<Habilidad> getClassAbilities()  {
 		return new ArrayList <> ();
+	}
+
+
+	/**
+	 *@author Anonymous(?
+	 * Agregamos como testeo la interface para jugar con las habilidades.
+	 * @return String
+	 */
+	 
+	 
+	
+	@Override
+	public String basicSpell() {
+		float totalDamage = 100; // 100 es el da�o que realiza el hechizo b�sico.
+		float totalInteligence = this.getMultiplicadorDeAtributosDeClase().getInteligence(); 
+		float totalCharisma = this.getMultiplicadorDeAtributosDeClase().getCarism();
+		totalDamage+= totalDamage / (totalInteligence/100);
+		totalDamage+= totalDamage / (totalCharisma/100);
+		StringBuilder sb = new StringBuilder();
+		sb.append("El ataque basico ha golpeado exitosamente realizando "+totalDamage+" da�o.");
+		return sb.toString();
+	}
+
+	/**
+	 * La idea de estas funciones, es que evaluen seg�n la suerte. Si el atributo suerte 
+	 * por ejemplo es 15. Tenes un 15% de probabilidades de realizar ese hechizo. Ese
+	 * ser� el factor que decida si esto se lleva a cabo o no.
+	 */
+	
+	
+	@Override
+	public String freeze() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String teleport() {
+		return null;
+	}
+  
+  /**
+	 *@author Anonymous(?
+	 * Agregamos como testeo la interface para jugar con las habilidades.
+	 * @return String
+	 */
+	 
+	 
+	
+	@Override
+	public String basicSpell() {
+		float totalDamage = 100; // 100 es el da�o que realiza el hechizo b�sico.
+		float totalInteligence = this.getMultiplicadorDeAtributosDeClase().getInteligence(); 
+		float totalCharisma = this.getMultiplicadorDeAtributosDeClase().getCarism();
+		totalDamage+= totalDamage / (totalInteligence/100);
+		totalDamage+= totalDamage / (totalCharisma/100);
+		StringBuilder sb = new StringBuilder();
+		sb.append("El ataque basico ha golpeado exitosamente realizando "+totalDamage+" da�o.");
+		return sb.toString();
+	}
+
+	/**
+	 * La idea de estas funciones, es que evaluen seg�n la suerte. Si el atributo suerte 
+	 * por ejemplo es 15. Tenes un 15% de probabilidades de realizar ese hechizo. Ese
+	 * ser� el factor que decida si esto se lleva a cabo o no.
+	 */
+	
+	
+	@Override
+	public String freeze() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String teleport() {
+		return null;
 	}
 }

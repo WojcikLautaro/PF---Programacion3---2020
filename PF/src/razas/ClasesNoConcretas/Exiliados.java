@@ -1,15 +1,16 @@
 package razas.ClasesNoConcretas;
 
-import clases.interfaces.ClaseBase;
+import atributes.Atributes;
+import razas.InterfasesClasesNoConcretas.HerenciaParaExiliados;
 
-public abstract class Exiliados <T extends ClaseBase> extends RazaBase <T> {
-	public Exiliados(String nickname,T clase) throws Exception {
+public abstract class Exiliados <T extends HerenciaParaExiliados> extends RazaBase <T> {
+	public Exiliados(String nickname,T clase) {
 		super(nickname, clase);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Exiliados(String nickname,T clase, int lvl) throws Exception {
-		super(nickname, clase, lvl);
+	public Exiliados(String nickname,T clase, Atributes attr, int lvl) {
+		super(nickname, clase, attr, lvl);
 		// TODO Auto-generated constructor stub
 	}
 

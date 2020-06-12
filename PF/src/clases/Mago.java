@@ -3,13 +3,15 @@ package clases;
 import java.util.ArrayList;
 
 import atributes.AtributeMultipliers;
-import clases.interfaces.ClaseBase;
 import habilidades.Habilidad;
 import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
+import razas.InterfacesClasesConcretas.HerenciaDraenelana;
+import razas.InterfacesClasesConcretas.HerenciaElfa;
+import razas.InterfacesClasesConcretas.HerenciaNoMuerta;
 import recursos.MaximosRecursos;
 import recursos.Recursos;
 
-public class Mago implements ClaseBase {
+public class Mago extends ClaseBase implements HerenciaNoMuerta, HerenciaElfa, HerenciaDraenelana {
 	@Override
 	public POSIBLES_CLASES getEnumDeClase () {
 		return POSIBLES_CLASES.MAGO;

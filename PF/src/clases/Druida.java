@@ -3,13 +3,12 @@ package clases;
 import java.util.ArrayList;
 
 import atributes.AtributeMultipliers;
-import clases.interfaces.ClaseBase;
 import habilidades.Habilidad;
 import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
 import recursos.MaximosRecursos;
 import recursos.Recursos;
 
-public class Druida implements ClaseBase {
+public class Druida extends ClaseBase {
 	@Override
 	public POSIBLES_CLASES getEnumDeClase () {
 		return POSIBLES_CLASES.DRUIDA;
