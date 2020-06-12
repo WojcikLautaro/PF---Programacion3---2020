@@ -26,14 +26,12 @@ public class Orco <T extends ClaseBase> extends Exiliados <T> {
 	@Override
 	protected AtributosBase getBaseAtributesFromRace() {
 		AtributosBase base = new AtributosBase(
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000
+				26,
+				17,
+				24,
+				17,
+				23,
+				12
 				);
 
 		return base;

@@ -40,7 +40,7 @@ public class Main {
 		
 		for (RazaBase<?> aux : personajes) {
 			try {
-				//admin.añadirPersonajeAUsuario("usuarioB", aux);
+				//admin.aniadirPersonajeAUsuario("usuarioB", aux);
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}

@@ -1,45 +1,39 @@
 package atributes;
 
+
 public class AtributosBase {
 	protected int strenght;
-	protected int inteligence;
-	protected int wisdom;
 	protected int dexterity;
-	protected int luck;
-	protected int divinity;
-	protected int carism;
 	protected int endurance;
+	protected int inteligence;
+	protected int luck;
+	protected int wisdom;
+
 	
 	public AtributosBase () {
 		strenght = 0;
-		inteligence = 0;
-		wisdom = 0;
 		dexterity = 0;
-		luck = 0;
-		divinity = 0;
-		carism = 0;
 		endurance = 0;
+		inteligence = 0;
+		luck = 0;
+		wisdom = 0;
 	}
 	
 	public AtributosBase(
 			int strenght, 
-			int inteligence, 
-			int wisdom, 
 			int dexterity, 
+			int endurance,
+			int inteligence, 
 			int luck, 
-			int divinity, 
-			int carism,
-			int endurance
-			) {
+			int wisdom
+			){
 		super();
 		this.strenght = strenght;
-		this.inteligence = inteligence;
-		this.wisdom = wisdom;
 		this.dexterity = dexterity;
-		this.luck = luck;
-		this.divinity = divinity;
-		this.carism = carism;
 		this.endurance = endurance;
+		this.inteligence = inteligence;
+		this.luck = luck;
+		this.wisdom = wisdom;
 	}
 	
 	public Integer getStrenght() {
@@ -71,18 +65,6 @@ public class AtributosBase {
 	}
 	public void setLuck(Integer luck) {
 		this.luck = luck;
-	}
-	public Integer getDivinity() {
-		return divinity;
-	}
-	public void setDivinity(Integer divinity) {
-		this.divinity = divinity;
-	}
-	public Integer getCarism() {
-		return carism;
-	}
-	public void setCarism(Integer carism) {
-		this.carism = carism;
 	}
 	public Integer getEndurance() {
 		return endurance;

@@ -31,14 +31,12 @@ public class NoMuerto <T extends ClaseBase> extends Exiliados<T> {
 	@Override
 	protected AtributosBase getBaseAtributesFromRace() {
 		AtributosBase base = new AtributosBase(
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000
+				22,
+				18,
+				23,
+				18,
+				25,
+				25
 				);
 
 		return base;

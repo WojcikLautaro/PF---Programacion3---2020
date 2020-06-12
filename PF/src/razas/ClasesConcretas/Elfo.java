@@ -31,14 +31,12 @@ public class Elfo <T extends ClaseBase> extends RazaBase<T> {
 	@Override
 	protected AtributosBase getBaseAtributesFromRace() {
 		AtributosBase base = new AtributosBase(
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000
+				20,
+				25,
+				21,
+				20,
+				20,
+				19
 				);
 
 		return base;

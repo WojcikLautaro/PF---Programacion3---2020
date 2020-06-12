@@ -32,14 +32,12 @@ public class Goblin <T extends ClaseBase> extends Exiliados<T> {
 	@Override
 	protected AtributosBase getBaseAtributesFromRace() {
 		AtributosBase base = new AtributosBase(
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000
+				17,
+				22,
+				20,
+				23,
+				18,
+				16
 				);
 
 		return base;

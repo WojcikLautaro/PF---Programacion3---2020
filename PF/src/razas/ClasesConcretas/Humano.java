@@ -33,14 +33,12 @@ public class Humano <T extends ClaseBase> extends RazaBase<T> {
 	@Override
 	protected AtributosBase getBaseAtributesFromRace() {
 		AtributosBase base = new AtributosBase(
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000
+				23,
+				20,
+				22,
+				20,
+				21,
+				18
 				);
 
 		return base;

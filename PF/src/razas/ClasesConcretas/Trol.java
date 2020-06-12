@@ -26,14 +26,12 @@ public class Trol <T extends ClaseBase> extends Exiliados<T> {
 	@Override
 	protected AtributosBase getBaseAtributesFromRace() {
 		AtributosBase base = new AtributosBase(
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000
+				24,
+				22,
+				23,
+				16,
+				21,
+				15
 				);
 
 		return base;

@@ -31,14 +31,12 @@ public class Enano <T extends ClaseBase> extends RazaBase<T> {
 	@Override
 	protected AtributosBase getBaseAtributesFromRace() {
 		AtributosBase base = new AtributosBase(
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000
+				25,
+				16,
+				25,
+				19,
+				19,
+				15
 				);
 
 		return base;

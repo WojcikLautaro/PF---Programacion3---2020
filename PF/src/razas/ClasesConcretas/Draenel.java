@@ -31,14 +31,12 @@ public class Draenel <T extends ClaseBase> extends RazaBase<T> {
 	@Override
 	protected AtributosBase getBaseAtributesFromRace() {
 		AtributosBase base = new AtributosBase(
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000
+				21,
+				17,
+				19,
+				21,
+				22,
+				23
 				);
 
 		return base;

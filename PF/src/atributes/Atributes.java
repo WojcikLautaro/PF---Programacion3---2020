@@ -1,15 +1,12 @@
 package atributes;
 
 public class Atributes {
-	/* Posibles atributos:
-	 * Fuerza,
-	 * Inteligencia,
-	 * Sabiduria,
-	 * Destreza,
-	 * Suerte,
-	 * Divinidad,
-	 * Carisma,
-	 * Aguante;
+	
+	/**
+	 * 
+	 * Los atributos, estos variaran segun clase y raza. Su totalidad se calcula en base a 
+	 * los atributos base de cada clase y raza, multiplicada por su multiplicadores.
+	 *
 	 */
 	
 	public AtributosBase baseAtributes;
@@ -42,27 +39,21 @@ public class Atributes {
 	}
 	
 	public Float getLuck() {
-		return baseAtributes.getLuck() * multipliers.getLuck();
-	}
-	public Float getDivinity() {
-		return baseAtributes.getDivinity() * multipliers.getDivinity();
-	}
-	public Float getCharisma() {
-		return baseAtributes.getCarism() * multipliers.getCarism();
+		return baseAtributes.getLuck() * multipliers.getLuckMult();
 	}
 	public Float getEndurance() {
-		return baseAtributes.getEndurance() * multipliers.getEndurance();
+		return baseAtributes.getEndurance() * multipliers.getEnduranceMult();
 	}
 	public Float getStrenght() {
-		return baseAtributes.getStrenght() * multipliers.getStrenght();
+		return baseAtributes.getStrenght() * multipliers.getStrenghtMult();
 	}
 	public Float getInteligence() {
-		return baseAtributes.getInteligence() * multipliers.getInteligence();
+		return baseAtributes.getInteligence() * multipliers.getInteligenceMult();
 	}
 	public Float getWisdom() {
-		return baseAtributes.getWisdom() * multipliers.getWisdom();
+		return baseAtributes.getWisdom() * multipliers.getWisdomMult();
 	}
 	public Float getDexterity() {
-		return baseAtributes.getDexterity() * multipliers.getDexterity();
+		return baseAtributes.getDexterity() * multipliers.getDexterityMult();
 	}
 }
