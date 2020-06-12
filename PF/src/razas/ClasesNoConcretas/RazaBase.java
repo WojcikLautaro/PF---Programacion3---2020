@@ -3,11 +3,11 @@ package razas.ClasesNoConcretas;
 import java.util.ArrayList;
 import atributes.Atributes;
 import atributes.AtributosBase;
+import clases.ClaseBase;
 import habilidades.Habilidad;
-import razas.InterfasesClasesNoConcretas.HerenciaParaTodasLasRazas;
 import recursos.Recursos;
 
-public abstract class RazaBase <T extends HerenciaParaTodasLasRazas> {
+public abstract class RazaBase <T extends ClaseBase> {
 	public static enum POSIBLES_ALIANZAS {
 		EXILIADOS,
 		GUARDIANES,
@@ -45,7 +45,7 @@ public abstract class RazaBase <T extends HerenciaParaTodasLasRazas> {
 		MAGO,
 		BRUJO,
 		DRUIDA,
-		SIN_CLASE
+		SIN_CLASE;
 	}
 	
 	/*
@@ -78,13 +78,18 @@ public abstract class RazaBase <T extends HerenciaParaTodasLasRazas> {
 	 * @return Devuelve un objeto de la clase "BaseRace" nuevo. este metodo esta dedicado a personajes recien creados.
 	 */
 	
-	public RazaBase (String nickname, T clase) {
+	public RazaBase (String nickname, T clase) throws Exception {
+		if(getEsUnaClaseAceptada(clase.getEnumDeClase())) 
+			this.clase = clase.getEnumDeClase();
+		else
+			throw new Exception("Clase no aceptada: " + clase.getEnumDeClase());
+		
 		this.atributes = new Atributes (getBaseAtributesFromRace(), clase.getMultiplicadorDeAtributosDeClase());
 		
 		this.resources = clase.getClassResources();
 		this.habilidades = new ArrayList <> (clase.getClassAbilities());
 		
-		this.clase = clase.getEnumDeClase ();
+		
 		this.raza = getEnumRace ();
 		this.alianza = getEnumAliance ();
 		
@@ -94,10 +99,8 @@ public abstract class RazaBase <T extends HerenciaParaTodasLasRazas> {
 		this.experiencia = 0;
 	}
 	
-	public RazaBase (String nickname, T clase, Atributes attr, int lvl) {
+	public RazaBase (String nickname, T clase, int lvl) throws Exception {
 		this(nickname, clase);
-		
-		this.atributes = new Atributes (getBaseAtributesFromRace());
 		this.lvl = lvl;
 	}
 	
@@ -105,6 +108,7 @@ public abstract class RazaBase <T extends HerenciaParaTodasLasRazas> {
 	protected abstract POSIBLES_ALIANZAS getEnumAliance ();
 	protected abstract String getDescripcionDePersonaje ();
 	protected abstract AtributosBase getBaseAtributesFromRace ();
+	protected abstract boolean getEsUnaClaseAceptada (POSIBLES_CLASES c);
 	
 	public POSIBLES_RAZAS getNombreDeRaza () {
 		return this.raza;

@@ -1,17 +1,16 @@
 package razas.ClasesConcretas;
 
-import atributes.Atributes;
 import atributes.AtributosBase;
+import clases.ClaseBase;
 import razas.ClasesNoConcretas.Exiliados;
-import razas.InterfacesClasesConcretas.HerenciaTroll;
 
-public class Trol <T extends HerenciaTroll> extends Exiliados<T> {
-	public Trol(String nickname,T clase) {
+public class Trol <T extends ClaseBase> extends Exiliados<T> {
+	public Trol(String nickname,T clase) throws Exception {
 		super(nickname, clase);
 	}
 	
-	public Trol(String nickname,T clase, Atributes attr, int lvl) {
-		super(nickname, clase, attr, lvl);
+	public Trol(String nickname,T clase, int lvl) throws Exception {
+		super(nickname, clase, lvl);
 	}
 
 	@Override
@@ -38,5 +37,17 @@ public class Trol <T extends HerenciaTroll> extends Exiliados<T> {
 				);
 
 		return base;
+	}
+	
+	@Override
+	protected boolean getEsUnaClaseAceptada(razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
+		switch (c) {
+			case GUERRERO:
+				return true;
+			case BRUJO:
+				return true;
+			default: 
+				return false;
+		}
 	}
 }
