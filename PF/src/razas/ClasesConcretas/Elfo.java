@@ -1,8 +1,7 @@
 package razas.ClasesConcretas;
 
-import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.ClaseBase;
+import clases.interfaces.ClaseBase;
 import razas.ClasesNoConcretas.RazaBase;
 
 public class Elfo <T extends ClaseBase> extends RazaBase<T> {
@@ -10,7 +9,7 @@ public class Elfo <T extends ClaseBase> extends RazaBase<T> {
 		super(nickname, clase);
 	}
 	
-	public Elfo(String nickname,T clase, Atributes attr, int lvl) throws Exception{
+	public Elfo(String nickname,T clase, int lvl) throws Exception{
 		super(nickname, clase, lvl);
 	}
 

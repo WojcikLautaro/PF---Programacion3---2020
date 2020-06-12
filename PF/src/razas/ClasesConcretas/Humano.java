@@ -1,29 +1,16 @@
 package razas.ClasesConcretas;
 
-import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.ClaseBase;
+import clases.interfaces.ClaseBase;
 import razas.ClasesNoConcretas.RazaBase;
 
-public class Humano <T extends ClaseBase> extends RazaBase<T> {
-	public static enum POSIBLES_CLASES {
-		GUERRERO, 
-		PALADÍN, 
-		CAZADOR, 
-		PÍCARO, 
-		SACERDOTE, 
-		MAGO,
-		BRUJO,
-		DRUIDA,
-		SIN_CLASE
-	}
-	
+public class Humano <T extends ClaseBase> extends RazaBase<T> {	
 	public Humano(String nickname,T clase) throws Exception {
 		super(nickname, clase);
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Humano(String nickname,T clase, Atributes attr, int lvl) throws Exception {
+	public Humano(String nickname,T clase, int lvl) throws Exception {
 		super(nickname, clase, lvl);
 		// TODO Auto-generated constructor stub
 	}

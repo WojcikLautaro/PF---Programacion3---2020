@@ -1,8 +1,7 @@
 package razas.ClasesConcretas;
 
-import atributes.Atributes;
 import atributes.AtributosBase;
-import clases.ClaseBase;
+import clases.interfaces.ClaseBase;
 import razas.ClasesNoConcretas.Exiliados;
 
 public class NoMuerto <T extends ClaseBase> extends Exiliados<T> {
@@ -10,7 +9,7 @@ public class NoMuerto <T extends ClaseBase> extends Exiliados<T> {
 		super(nickname, clase);
 	}
 	
-	public NoMuerto(String nickname, T clase, Atributes attr, int lvl) throws Exception {
+	public NoMuerto(String nickname, T clase, int lvl) throws Exception {
 		super(nickname, clase, lvl);
 	}
 

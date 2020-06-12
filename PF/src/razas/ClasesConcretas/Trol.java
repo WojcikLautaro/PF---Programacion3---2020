@@ -1,7 +1,7 @@
 package razas.ClasesConcretas;
 
 import atributes.AtributosBase;
-import clases.ClaseBase;
+import clases.interfaces.ClaseBase;
 import razas.ClasesNoConcretas.Exiliados;
 
 public class Trol <T extends ClaseBase> extends Exiliados<T> {
