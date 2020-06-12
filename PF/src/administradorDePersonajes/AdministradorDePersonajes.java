@@ -183,7 +183,7 @@ public class AdministradorDePersonajes  {
 		objectOutputStream.close();
 	}
 
-	public void añadirUsuario (String nombreDeUsuario) {
+	public void aniadirUsuario (String nombreDeUsuario) {
 		if(!this.personajesPorUsuarios.containsKey(nombreDeUsuario)) 
 			this.personajesPorUsuarios.put(nombreDeUsuario, new ArrayList <> ());
 	}
@@ -205,9 +205,9 @@ public class AdministradorDePersonajes  {
 		return this.personajesPorUsuarios.get(nombreDeUsuario);
 	}
 	
-	public void añadirPersonajeAUsuario (String nombreDeUsuario, RazaBase<?> nuevoPersonaje) throws Exception {
+	public void aniadirPersonajeAUsuario (String nombreDeUsuario, RazaBase<?> nuevoPersonaje) throws Exception {
 		if(!this.personajesPorUsuarios.containsKey(nombreDeUsuario))
-			añadirUsuario(nombreDeUsuario);
+			aniadirUsuario(nombreDeUsuario);
 		
 		if(this.personajesPorUsuarios.get(nombreDeUsuario).contains(nuevoPersonaje))
 			throw new Exception();
@@ -239,11 +239,11 @@ public class AdministradorDePersonajes  {
 		borrarPersonajeDeUsuario(nombreDeUsuario, personaje);
 		
 		if(this.personajesPorUsuarios.get(nombreDeUsuario).contains(nuevoPersonaje)) {
-			añadirPersonajeAUsuario(nombreDeUsuario, aux);
+			aniadirPersonajeAUsuario(nombreDeUsuario, aux);
 			throw new Exception();
 		}
 			
-		añadirPersonajeAUsuario(nombreDeUsuario, nuevoPersonaje);
+		aniadirPersonajeAUsuario(nombreDeUsuario, nuevoPersonaje);
 	}
 	
 	@Override

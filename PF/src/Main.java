@@ -24,11 +24,11 @@ public class Main {
 		 */
 
 		AdministradorDePersonajes admin = AdministradorDePersonajes.cargar("file.dat");
-		admin.añadirUsuario("usuarioA");
-		admin.añadirUsuario("usuarioB");
-		admin.añadirUsuario("usuarioC");
-		admin.añadirUsuario("usuarioD");
-		admin.añadirUsuario("usuarioA");
+		admin.aniadirUsuario("usuarioA");
+		admin.aniadirUsuario("usuarioB");
+		admin.aniadirUsuario("usuarioC");
+		admin.aniadirUsuario("usuarioD");
+		admin.aniadirUsuario("usuarioA");
 		
 		try {
 			System.out.println("Result: " + admin.getPersonajeDeUsuario("usuarioB", "Flor"));
