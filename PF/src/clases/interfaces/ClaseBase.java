@@ -2,6 +2,7 @@ package clases.interfaces;
 import java.util.ArrayList;
 
 import atributes.AtributeMultipliers;
+import atributes.AtributosBase;
 import habilidades.Habilidad;
 import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
 import recursos.Recursos;

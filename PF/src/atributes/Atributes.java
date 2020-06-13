@@ -23,7 +23,7 @@ public class Atributes {
 	public Atributes (AtributosBase baseAtributes) {
 		this.baseAtributes = baseAtributes;
 		this.multipliers = new AtributeMultipliers();
-	}
+	
 	
 	public Atributes (AtributosBase baseAtributes, AtributeMultipliers multipliers) {
 		this.baseAtributes = baseAtributes;

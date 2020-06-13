@@ -47,9 +47,7 @@ public class Elfo <T extends ClaseBase> extends RazaBase<T> {
 		switch (c) {
 			case DRUIDA:
 				return true;
-			case BRUJO:
-				return true;
-			case SACERDOTE:
+			case CAZADOR:
 				return true;
 			case MAGO:
 				return true;

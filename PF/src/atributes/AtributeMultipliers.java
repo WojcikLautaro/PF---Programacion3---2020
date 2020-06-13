@@ -28,8 +28,8 @@ public class AtributeMultipliers {
 			float strenghtMult,
 			float dexterityMult,
 			float enduranceMult, 
-			float luckMult, 
 			float inteligenceMult, 
+			float luckMult, 
 			float wisdomMult
 			) {
 		super();

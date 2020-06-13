@@ -5,6 +5,7 @@ import clases.interfaces.ClaseBase;
 import razas.ClasesNoConcretas.RazaBase;
 
 public class Draenel <T extends ClaseBase> extends RazaBase<T> {
+	
 	public Draenel(String nickname,T clase) throws Exception {
 		super(nickname, clase);
 	}

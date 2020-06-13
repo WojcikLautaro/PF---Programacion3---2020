@@ -1,12 +1,6 @@
 package recursos;
 
 public class Recursos {
-	/* Posibles recursos 
-	 * vida,
-	 * mana,
-	 * furia,
-	 * stamina;
-	 */
 	
 	protected MaximosRecursos maxRec;
 

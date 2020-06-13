@@ -26,7 +26,7 @@ public class Brujo implements ClaseBase, ISpell {
 
 	@Override
 	public AtributeMultipliers getMultiplicadorDeAtributosDeClase() {
-		return new AtributeMultipliers(102,1,1,1,1,1);
+		return new AtributeMultipliers(1.01f,1.01f,1.06f,1.12f,1.11f,1.16f);
 	}
 
 	@Override
@@ -45,7 +45,11 @@ public class Brujo implements ClaseBase, ISpell {
 	  * @return String
 	 */
 			 
-			 
+			 /*
+			  TODO Tengo que ver si implemento en la clase personaje, o aca las habilidades con su danio
+			  ya que no tengo acceso absoluto a los atributos finales, por lo que no puedo hacer
+			  la cuenta para calcular el danio total de las habilidades.
+			  */
 			
 			@Override
 			public String basicSpell() {
