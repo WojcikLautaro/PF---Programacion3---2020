@@ -4,7 +4,7 @@ import atributes.AtributosBase;
 import clases.interfaces.ClaseBase;
 import razas.ClasesNoConcretas.RazaBase;
 
-public class Elfo <T extends ClaseBase> extends RazaBase<T> {
+public final class Elfo <T extends ClaseBase> extends RazaBase<T> {
 	public Elfo(String nickname,T clase) throws Exception{
 		super(nickname, clase);
 	}

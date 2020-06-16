@@ -4,7 +4,7 @@ import atributes.AtributosBase;
 import clases.interfaces.ClaseBase;
 import razas.ClasesNoConcretas.Exiliados;
 
-public class Goblin <T extends ClaseBase> extends Exiliados<T> {
+public final class Goblin <T extends ClaseBase> extends Exiliados<T> {
 	public Goblin(String nickname,T clase) throws Exception {
 		super(nickname, clase);
 	}

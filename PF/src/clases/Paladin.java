@@ -9,7 +9,7 @@ import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
 import recursos.MaximosRecursos;
 import recursos.Recursos;
 
-public class Paladin implements ClaseBase {
+public final class Paladin implements ClaseBase {
 	@Override
 	public POSIBLES_CLASES getEnumDeClase () {
 		return POSIBLES_CLASES.PALADÍN;

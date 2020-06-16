@@ -9,7 +9,7 @@ import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
 import recursos.MaximosRecursos;
 import recursos.Recursos;
 
-public class Picaro implements ClaseBase {
+public final class Picaro implements ClaseBase {
 	@Override
 	public POSIBLES_CLASES getEnumDeClase () {
 		return POSIBLES_CLASES.PÍCARO;

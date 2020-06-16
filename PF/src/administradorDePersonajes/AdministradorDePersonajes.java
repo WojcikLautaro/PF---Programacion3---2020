@@ -18,7 +18,7 @@ import razas.ClasesNoConcretas.RazaBase;
 import razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES;
 import razas.ClasesNoConcretas.RazaBase.POSIBLES_RAZAS;
 
-public class AdministradorDePersonajes  {
+public final class AdministradorDePersonajes  {
 	protected HashMap<String, ArrayList<RazaBase<?>>> personajesPorUsuarios;
 	
 	public AdministradorDePersonajes() {
@@ -210,7 +210,7 @@ public class AdministradorDePersonajes  {
 			añadirUsuario(nombreDeUsuario);
 		
 		if(this.personajesPorUsuarios.get(nombreDeUsuario).contains(nuevoPersonaje))
-			throw new Exception();
+			throw new Exception("Personaje ya existe");
 		
 		this.personajesPorUsuarios.get(nombreDeUsuario).add(nuevoPersonaje);
 	}

@@ -4,7 +4,7 @@ import atributes.AtributosBase;
 import clases.interfaces.ClaseBase;
 import razas.ClasesNoConcretas.Exiliados;
 
-public class Trol <T extends ClaseBase> extends Exiliados<T> {
+public final class Trol <T extends ClaseBase> extends Exiliados<T> {
 	public Trol(String nickname,T clase) throws Exception {
 		super(nickname, clase);
 	}

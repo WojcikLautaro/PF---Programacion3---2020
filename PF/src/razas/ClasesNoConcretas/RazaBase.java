@@ -45,12 +45,15 @@ public abstract class RazaBase<T extends ClaseBase> {
 	}
 
 	/*
-	 * Orco -> Guerrero, Paladin, Picaro, Cazador Trol -> Guerrero, Brujo Goblin ->
-	 * Picaro, Guerrero, Brujo No muerto -> Brujo, Sacerdote, Mago
+	 * Orco -> Guerrero, Paladin, Picaro, Cazador 
+	 * Trol -> Guerrero, Brujo 
+	 * Goblin -> Picaro, Guerrero, Brujo 
+	 * No muerto -> Brujo, Sacerdote, Mago
 	 * 
-	 * Humano -> Guerrero, Paladin, Picaro, Cazador Elfo -> Druida, Brujo,
-	 * Sacerdote, Mago Enano -> Picaro, Guerrero, Paladin Draenel -> Brujo,
-	 * Sacerdote, Mago
+	 * Humano -> Guerrero, Paladin, Picaro, Cazador 
+	 * Elfo -> Druida, Brujo, Sacerdote, Mago 
+	 * Enano -> Picaro, Guerrero, Paladin 
+	 * Draenel -> Brujo, Sacerdote, Mago
 	 */
 
 	protected POSIBLES_ALIANZAS alianza;
@@ -135,7 +138,7 @@ public abstract class RazaBase<T extends ClaseBase> {
 		return habilidades;
 	}
 
-	public static RazaBase<?> getNuevoPersonaje(POSIBLES_RAZAS raza, POSIBLES_CLASES clase, String nick, int nivel)
+	public final static RazaBase<?> getNuevoPersonaje(POSIBLES_RAZAS raza, POSIBLES_CLASES clase, String nick, int nivel)
 			throws Exception {
 		switch (raza) {
 		case ORCO:
@@ -329,7 +332,7 @@ public abstract class RazaBase<T extends ClaseBase> {
 		throw new Exception();
 	}
 	
-	public static RazaBase<?> getNuevoPersonaje(POSIBLES_RAZAS raza, POSIBLES_CLASES clase, String nick) throws Exception {
+	public final static RazaBase<?> getNuevoPersonaje(POSIBLES_RAZAS raza, POSIBLES_CLASES clase, String nick) throws Exception {
 		return getNuevoPersonaje(raza, clase, nick, 0);
 	}
 
@@ -354,9 +357,11 @@ public abstract class RazaBase<T extends ClaseBase> {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof RazaBase<?>)
-			if(this.getNick() == ((RazaBase<?>)obj).getNick())
+		if(obj instanceof RazaBase<?>) {
+			if(this.getNick().equals(((RazaBase<?>)obj).getNick())) {
 				return true;
+			}
+		}
 		
 		return false;
 	}

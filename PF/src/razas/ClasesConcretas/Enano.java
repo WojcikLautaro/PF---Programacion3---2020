@@ -4,7 +4,7 @@ import atributes.AtributosBase;
 import clases.interfaces.ClaseBase;
 import razas.ClasesNoConcretas.RazaBase;
 
-public class Enano <T extends ClaseBase> extends RazaBase<T> {
+public final class Enano <T extends ClaseBase> extends RazaBase<T> {
 	public Enano(String nickname,T clase) throws Exception {
 		super(nickname, clase);
 	}

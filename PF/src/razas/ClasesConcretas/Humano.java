@@ -4,7 +4,7 @@ import atributes.AtributosBase;
 import clases.interfaces.ClaseBase;
 import razas.ClasesNoConcretas.RazaBase;
 
-public class Humano <T extends ClaseBase> extends RazaBase<T> {	
+public final class Humano <T extends ClaseBase> extends RazaBase<T> {	
 	public Humano(String nickname,T clase) throws Exception {
 		super(nickname, clase);
 		// TODO Auto-generated constructor stub

@@ -9,10 +9,10 @@ public class Main {
 	ArrayList<RazaBase<?>> personajes = new ArrayList <> ();
 		try {	
 			personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.HUMANO, 	RazaBase.POSIBLES_CLASES.PALADÍN, 	"Flor"));
-			personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.ORCO, 	RazaBase.POSIBLES_CLASES.GUERRERO, 	"Guerrero"));
-			personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.TROL, 	RazaBase.POSIBLES_CLASES.GUERRERO, 	"Mago"));
-			personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.NOMUERTO, RazaBase.POSIBLES_CLASES.BRUJO, 	"Luis"));
-			personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.HUMANO, 	RazaBase.POSIBLES_CLASES.PALADÍN, 	"Sancho"));
+			//personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.ORCO, 	RazaBase.POSIBLES_CLASES.GUERRERO, 	"Guerrero"));
+			//personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.TROL, 	RazaBase.POSIBLES_CLASES.GUERRERO, 	"Mago"));
+			//personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.NOMUERTO, RazaBase.POSIBLES_CLASES.BRUJO, 	"Luis"));
+			//personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.HUMANO, 	RazaBase.POSIBLES_CLASES.PALADÍN, 	"Sancho"));
 		} 
 		
 		catch (Exception e) {
@@ -40,7 +40,7 @@ public class Main {
 		
 		for (RazaBase<?> aux : personajes) {
 			try {
-				//admin.añadirPersonajeAUsuario("usuarioB", aux);
+				admin.añadirPersonajeAUsuario("usuarioB", aux);
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
