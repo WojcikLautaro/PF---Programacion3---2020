@@ -113,7 +113,7 @@ public final class AdministradorDePersonajes {
 		personajesPorUsuarios = fromJSONObject(json);
 	}
 
-	public void añadirPersonajeAUsuario(String nombreDeUsuario, RazaBase<?> nuevoPersonaje) throws Exception {
+	public void aniadirPersonajeAUsuario(String nombreDeUsuario, RazaBase<?> nuevoPersonaje) throws Exception {
 		if (!getExisteUsuario(nombreDeUsuario))
 			throw new Exception("Usuario no existente");
 
@@ -123,7 +123,7 @@ public final class AdministradorDePersonajes {
 		getPersonajesDeUsuarioNoExepcion(nombreDeUsuario).add(nuevoPersonaje);
 	}
 
-	public void añadirUsuario(String nombreDeUsuario) {
+	public void aniadirUsuario(String nombreDeUsuario) {
 		if (!getExisteUsuario(nombreDeUsuario))
 			this.personajesPorUsuarios.put(nombreDeUsuario, new ArrayList<>());
 	}
@@ -140,14 +140,14 @@ public final class AdministradorDePersonajes {
 		if (getExisteUsuario(nuevoNombreDeUsuario) || !getExisteUsuario(nombreDeUsuario))
 			throw new Exception();
 
-		añadirUsuario(nuevoNombreDeUsuario);
+		aniadirUsuario(nuevoNombreDeUsuario);
 		setPersonajesDeUsuario(nuevoNombreDeUsuario, getPersonajesDeUsuario(nombreDeUsuario));
 		borrarUsuario(nombreDeUsuario);
 	}
 
 	public void cambiarPersonajeDeUsuario(String nombreDeUsuario, RazaBase<?> personaje, RazaBase<?> nuevoPersonaje)
 			throws Exception {
-		añadirPersonajeAUsuario(nombreDeUsuario, nuevoPersonaje);
+		aniadirPersonajeAUsuario(nombreDeUsuario, nuevoPersonaje);
 		borrarPersonajeDeUsuario(nombreDeUsuario, personaje);
 	}
 

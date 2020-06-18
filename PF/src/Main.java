@@ -17,7 +17,7 @@ public class Main {
 			// personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.NOMUERTO,
 			// RazaBase.POSIBLES_CLASES.BRUJO, "Luis"));
 			// personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.HUMANO,
-			// RazaBase.POSIBLES_CLASES.PALADÍN, "Sancho"));
+			// RazaBase.POSIBLES_CLASES.PALADIN, "Sancho"));
 		}
 
 		catch (Exception e) {
@@ -31,11 +31,9 @@ public class Main {
 		 */
 
 		AdministradorDePersonajes admin = AdministradorDePersonajes.cargar("file.dat");
-		admin.añadirUsuario("usuarioA");
-		admin.añadirUsuario("usuarioB");
-		admin.añadirUsuario("usuarioC");
-		admin.añadirUsuario("usuarioD");
-		admin.añadirUsuario("usuarioA");
+		admin.aniadirUsuario("usuarioA");
+		admin.aniadirUsuario("usuarioB");
+		admin.aniadirUsuario("usuarioA");
 
 		try {
 			System.out.println("Result: " + admin.getPersonajeDeUsuario("usuarioB", "Flor"));
@@ -47,7 +45,7 @@ public class Main {
 
 		for (RazaBase<?> aux : personajes) {
 			try {
-				admin.añadirPersonajeAUsuario("usuarioB", aux);
+				admin.aniadirPersonajeAUsuario("usuarioA", aux);
 			} 
 			
 			catch (Exception e1) {
