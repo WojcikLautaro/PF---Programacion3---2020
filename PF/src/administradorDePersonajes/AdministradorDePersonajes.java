@@ -183,8 +183,12 @@ public final class AdministradorDePersonajes  {
 		objectOutputStream.close();
 	}
 
+	public boolean getExisteUsuario (String nombreDeUsuario) {
+		return this.personajesPorUsuarios.containsKey(nombreDeUsuario);
+	}
+	
 	public void añadirUsuario (String nombreDeUsuario) {
-		if(!this.personajesPorUsuarios.containsKey(nombreDeUsuario)) 
+		if(!getExisteUsuario(nombreDeUsuario)) 
 			this.personajesPorUsuarios.put(nombreDeUsuario, new ArrayList <> ());
 	}
 	
@@ -193,22 +197,29 @@ public final class AdministradorDePersonajes  {
 	}
 	
 	public void cambiarNombreDeUsuario (String nombreDeUsuario, String nuevoNombreDeUsuario) throws Exception {
-		if(this.personajesPorUsuarios.containsKey(nuevoNombreDeUsuario) || !this.personajesPorUsuarios.containsKey(nuevoNombreDeUsuario))
+		if(getExisteUsuario(nuevoNombreDeUsuario) || !getExisteUsuario(nombreDeUsuario))
 			throw new Exception();
 		
-		ArrayList<RazaBase<?>> auxPersonajes = this.personajesPorUsuarios.get(nombreDeUsuario);
-		this.personajesPorUsuarios.put(nuevoNombreDeUsuario, auxPersonajes);
-		this.personajesPorUsuarios.remove(nombreDeUsuario);
+		añadirUsuario(nuevoNombreDeUsuario);
+		setPersonajesDeUsuario(nuevoNombreDeUsuario, getPersonajesDeUsuario(nombreDeUsuario));
+		borrarUsuario(nombreDeUsuario);
 	}
 	
 	public ArrayList<RazaBase<?>> getPersonajesDeUsuario (String nombreDeUsuario) throws Exception {
-		if (!this.personajesPorUsuarios.containsKey(nombreDeUsuario))
+		if (!getExisteUsuario(nombreDeUsuario))
 			throw new Exception ("Usuario no existente");
 		
 		return this.personajesPorUsuarios.get(nombreDeUsuario);
 	}
 	
-	public ArrayList<RazaBase<?>> getPersonajesDeUsuarioNpExepcion (String nombreDeUsuario) {
+	public void setPersonajesDeUsuario (String nombreDeUsuario, ArrayList<RazaBase<?>> nuevosPersonajes) throws Exception {
+		if (!getExisteUsuario(nombreDeUsuario))
+			throw new Exception ("Usuario no existente");
+		
+		this.personajesPorUsuarios.put(nombreDeUsuario, nuevosPersonajes);
+	}
+	
+	public ArrayList<RazaBase<?>> getPersonajesDeUsuarioNoExepcion (String nombreDeUsuario) {
 		try {
 			return getPersonajesDeUsuario(nombreDeUsuario);
 		} catch (Exception e) {
@@ -217,13 +228,17 @@ public final class AdministradorDePersonajes  {
 	}
 	
 	public void añadirPersonajeAUsuario (String nombreDeUsuario, RazaBase<?> nuevoPersonaje) throws Exception {
-		if(!this.personajesPorUsuarios.containsKey(nombreDeUsuario))
-			añadirUsuario(nombreDeUsuario);
+		if(!getExisteUsuario(nombreDeUsuario))
+			throw new Exception("Usuario no existente");
 		
-		if(this.personajesPorUsuarios.get(nombreDeUsuario).contains(nuevoPersonaje))
+		if(getExistePersonajeEnUsuario(nombreDeUsuario, nuevoPersonaje))
 			throw new Exception("Personaje ya existe");
 		
-		this.personajesPorUsuarios.get(nombreDeUsuario).add(nuevoPersonaje);
+		getPersonajesDeUsuarioNoExepcion(nombreDeUsuario).add(nuevoPersonaje);
+	}
+	
+	public boolean getExistePersonajeEnUsuario (String nombreDeUsuario, RazaBase<?> nuevoPersonaje) {
+		return this.personajesPorUsuarios.get(nombreDeUsuario).contains(nuevoPersonaje);
 	}
 	
 	public RazaBase<?> getPersonajeDeUsuario (String nombreDeUsuario, String nombreDePersonaje) throws Exception {
@@ -239,16 +254,8 @@ public final class AdministradorDePersonajes  {
 	}
 	
 	public void cambiarPersonajeDeUsuario (String nombreDeUsuario, RazaBase<?> personaje, RazaBase<?> nuevoPersonaje) throws Exception {
-		RazaBase<?> aux = personaje;
-		
-		borrarPersonajeDeUsuario(nombreDeUsuario, personaje);
-		
-		if(getPersonajesDeUsuario(nombreDeUsuario).contains(nuevoPersonaje)) {
-			añadirPersonajeAUsuario(nombreDeUsuario, aux);
-			throw new Exception("Personaje ya exsistente");
-		}
-			
 		añadirPersonajeAUsuario(nombreDeUsuario, nuevoPersonaje);
+		borrarPersonajeDeUsuario(nombreDeUsuario, personaje);
 	}
 	
 	public void mostrarPersonajesDeUsuario (String nombreDeUsuario) throws Exception {
