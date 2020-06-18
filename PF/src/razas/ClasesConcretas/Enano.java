@@ -1,26 +1,23 @@
-package razas.ClasesConcretas;
+package razas.clasesConcretas;
 
-import atributes.AtributosBase;
+import atributosDeRazaYClase.AtributosBase;
 import clases.interfaces.ClaseBase;
-import razas.ClasesNoConcretas.RazaBase;
+import razas.clasesNoConcretas.Guardianes;
 
-public final class Enano <T extends ClaseBase> extends RazaBase<T> {
-	public Enano(String nickname,T clase) throws Exception {
+public final class Enano<T extends ClaseBase> extends Guardianes<T> {
+	public Enano(String nickname, T clase) throws Exception {
 		super(nickname, clase);
 	}
-	
-	public Enano(String nickname,T clase, int lvl) throws Exception {
+
+	public Enano(String nickname, T clase, int lvl) throws Exception {
 		super(nickname, clase, lvl);
 	}
 
 	@Override
-	protected POSIBLES_RAZAS getEnumRace() {
-		return POSIBLES_RAZAS.ENANO;
-	}
+	protected AtributosBase getBaseAtributesFromRace() {
+		AtributosBase base = new AtributosBase(1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000);
 
-	@Override
-	protected POSIBLES_ALIANZAS getEnumAliance() {
-		return POSIBLES_ALIANZAS.GUARDIANES;
+		return base;
 	}
 
 	@Override
@@ -29,32 +26,21 @@ public final class Enano <T extends ClaseBase> extends RazaBase<T> {
 	}
 
 	@Override
-	protected AtributosBase getBaseAtributesFromRace() {
-		AtributosBase base = new AtributosBase(
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000
-				);
-
-		return base;
+	protected POSIBLES_RAZAS getEnumRace() {
+		return POSIBLES_RAZAS.ENANO;
 	}
-	
+
 	@Override
-	protected boolean getEsUnaClaseAceptada(razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
+	protected boolean getEsUnaClaseAceptada(razas.clasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
 		switch (c) {
-			case PÍCARO:
-				return true;
-			case GUERRERO:
-				return true;
-			case PALADÍN:
-				return true;
-			default: 
-				return false;
+		case PICARO:
+			return true;
+		case GUERRERO:
+			return true;
+		case PALADIN:
+			return true;
+		default:
+			return false;
 		}
 	}
 }

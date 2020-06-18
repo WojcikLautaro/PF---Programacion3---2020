@@ -1,21 +1,23 @@
-package razas.ClasesConcretas;
+package razas.clasesConcretas;
 
-import atributes.AtributosBase;
+import atributosDeRazaYClase.AtributosBase;
 import clases.interfaces.ClaseBase;
-import razas.ClasesNoConcretas.Exiliados;
+import razas.clasesNoConcretas.Exiliados;
 
-public final class Trol <T extends ClaseBase> extends Exiliados<T> {
-	public Trol(String nickname,T clase) throws Exception {
+public final class Trol<T extends ClaseBase> extends Exiliados<T> {
+	public Trol(String nickname, T clase) throws Exception {
 		super(nickname, clase);
 	}
-	
-	public Trol(String nickname,T clase, int lvl) throws Exception {
+
+	public Trol(String nickname, T clase, int lvl) throws Exception {
 		super(nickname, clase, lvl);
 	}
 
 	@Override
-	protected POSIBLES_RAZAS getEnumRace() {
-		return POSIBLES_RAZAS.TROL;
+	protected AtributosBase getBaseAtributesFromRace() {
+		AtributosBase base = new AtributosBase(1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000);
+
+		return base;
 	}
 
 	@Override
@@ -24,30 +26,19 @@ public final class Trol <T extends ClaseBase> extends Exiliados<T> {
 	}
 
 	@Override
-	protected AtributosBase getBaseAtributesFromRace() {
-		AtributosBase base = new AtributosBase(
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000
-				);
-
-		return base;
+	protected POSIBLES_RAZAS getEnumRace() {
+		return POSIBLES_RAZAS.TROL;
 	}
-	
+
 	@Override
-	protected boolean getEsUnaClaseAceptada(razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
+	protected boolean getEsUnaClaseAceptada(razas.clasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
 		switch (c) {
-			case GUERRERO:
-				return true;
-			case BRUJO:
-				return true;
-			default: 
-				return false;
+		case GUERRERO:
+			return true;
+		case BRUJO:
+			return true;
+		default:
+			return false;
 		}
 	}
 }

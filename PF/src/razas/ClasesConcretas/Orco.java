@@ -1,21 +1,23 @@
-package razas.ClasesConcretas;
+package razas.clasesConcretas;
 
-import atributes.AtributosBase;
+import atributosDeRazaYClase.AtributosBase;
 import clases.interfaces.ClaseBase;
-import razas.ClasesNoConcretas.Exiliados;
+import razas.clasesNoConcretas.Exiliados;
 
-public final class Orco <T extends ClaseBase> extends Exiliados <T> {	
-	public Orco(String nickname,T clase) throws Exception {
+public final class Orco<T extends ClaseBase> extends Exiliados<T> {
+	public Orco(String nickname, T clase) throws Exception {
 		super(nickname, clase);
 	}
-	
-	public Orco(String nickname,T clase, int lvl) throws Exception {
+
+	public Orco(String nickname, T clase, int lvl) throws Exception {
 		super(nickname, clase, lvl);
 	}
 
 	@Override
-	protected POSIBLES_RAZAS getEnumRace() {
-		return POSIBLES_RAZAS.ORCO;
+	protected AtributosBase getBaseAtributesFromRace() {
+		AtributosBase base = new AtributosBase(1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000);
+
+		return base;
 	}
 
 	@Override
@@ -24,34 +26,23 @@ public final class Orco <T extends ClaseBase> extends Exiliados <T> {
 	}
 
 	@Override
-	protected AtributosBase getBaseAtributesFromRace() {
-		AtributosBase base = new AtributosBase(
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000
-				);
-
-		return base;
+	protected POSIBLES_RAZAS getEnumRace() {
+		return POSIBLES_RAZAS.ORCO;
 	}
-	
+
 	@Override
-	protected boolean getEsUnaClaseAceptada(razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
+	protected boolean getEsUnaClaseAceptada(razas.clasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
 		switch (c) {
-			case GUERRERO:
-				return true;
-			case PALADÍN:
-				return true;
-			case PÍCARO:
-				return true;
-			case CAZADOR:
-				return true;
-			default: 
-				return false;
+		case GUERRERO:
+			return true;
+		case PALADIN:
+			return true;
+		case PICARO:
+			return true;
+		case CAZADOR:
+			return true;
+		default:
+			return false;
 		}
 	}
 }

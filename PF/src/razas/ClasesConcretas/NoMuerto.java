@@ -1,26 +1,23 @@
-package razas.ClasesConcretas;
+package razas.clasesConcretas;
 
-import atributes.AtributosBase;
+import atributosDeRazaYClase.AtributosBase;
 import clases.interfaces.ClaseBase;
-import razas.ClasesNoConcretas.Exiliados;
+import razas.clasesNoConcretas.Exiliados;
 
-public final class NoMuerto <T extends ClaseBase> extends Exiliados<T> {
-	public NoMuerto(String nickname,T clase) throws Exception {
+public final class NoMuerto<T extends ClaseBase> extends Exiliados<T> {
+	public NoMuerto(String nickname, T clase) throws Exception {
 		super(nickname, clase);
 	}
-	
+
 	public NoMuerto(String nickname, T clase, int lvl) throws Exception {
 		super(nickname, clase, lvl);
 	}
 
 	@Override
-	protected POSIBLES_RAZAS getEnumRace() {
-		return POSIBLES_RAZAS.NOMUERTO;
-	}
+	protected AtributosBase getBaseAtributesFromRace() {
+		AtributosBase base = new AtributosBase(1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000);
 
-	@Override
-	protected POSIBLES_ALIANZAS getEnumAliance() {
-		return POSIBLES_ALIANZAS.EXILIADOS;
+		return base;
 	}
 
 	@Override
@@ -29,32 +26,26 @@ public final class NoMuerto <T extends ClaseBase> extends Exiliados<T> {
 	}
 
 	@Override
-	protected AtributosBase getBaseAtributesFromRace() {
-		AtributosBase base = new AtributosBase(
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000
-				);
-
-		return base;
+	protected POSIBLES_ALIANZAS getEnumAliance() {
+		return POSIBLES_ALIANZAS.EXILIADOS;
 	}
-	
+
 	@Override
-	protected boolean getEsUnaClaseAceptada(razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
+	protected POSIBLES_RAZAS getEnumRace() {
+		return POSIBLES_RAZAS.NOMUERTO;
+	}
+
+	@Override
+	protected boolean getEsUnaClaseAceptada(razas.clasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
 		switch (c) {
-			case SACERDOTE:
-				return true;
-			case BRUJO:
-				return true;
-			case MAGO:
-				return true;
-			default: 
-				return false;
+		case SACERDOTE:
+			return true;
+		case BRUJO:
+			return true;
+		case MAGO:
+			return true;
+		default:
+			return false;
 		}
 	}
 }

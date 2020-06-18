@@ -1,26 +1,23 @@
-package razas.ClasesConcretas;
+package razas.clasesConcretas;
 
-import atributes.AtributosBase;
+import atributosDeRazaYClase.AtributosBase;
 import clases.interfaces.ClaseBase;
-import razas.ClasesNoConcretas.RazaBase;
+import razas.clasesNoConcretas.Guardianes;
 
-public final class Elfo <T extends ClaseBase> extends RazaBase<T> {
-	public Elfo(String nickname,T clase) throws Exception{
+public final class Elfo<T extends ClaseBase> extends Guardianes<T> {
+	public Elfo(String nickname, T clase) throws Exception {
 		super(nickname, clase);
 	}
-	
-	public Elfo(String nickname,T clase, int lvl) throws Exception{
+
+	public Elfo(String nickname, T clase, int lvl) throws Exception {
 		super(nickname, clase, lvl);
 	}
 
 	@Override
-	protected POSIBLES_RAZAS getEnumRace() {
-		return POSIBLES_RAZAS.ELFO;
-	}
+	protected AtributosBase getBaseAtributesFromRace() {
+		AtributosBase base = new AtributosBase(1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000);
 
-	@Override
-	protected POSIBLES_ALIANZAS getEnumAliance() {
-		return POSIBLES_ALIANZAS.GUARDIANES;
+		return base;
 	}
 
 	@Override
@@ -29,34 +26,23 @@ public final class Elfo <T extends ClaseBase> extends RazaBase<T> {
 	}
 
 	@Override
-	protected AtributosBase getBaseAtributesFromRace() {
-		AtributosBase base = new AtributosBase(
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000,
-				1000
-				);
-
-		return base;
+	protected POSIBLES_RAZAS getEnumRace() {
+		return POSIBLES_RAZAS.ELFO;
 	}
-	
+
 	@Override
-	protected boolean getEsUnaClaseAceptada(razas.ClasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
+	protected boolean getEsUnaClaseAceptada(razas.clasesNoConcretas.RazaBase.POSIBLES_CLASES c) {
 		switch (c) {
-			case DRUIDA:
-				return true;
-			case BRUJO:
-				return true;
-			case SACERDOTE:
-				return true;
-			case MAGO:
-				return true;
-			default: 
-				return false;
+		case DRUIDA:
+			return true;
+		case BRUJO:
+			return true;
+		case SACERDOTE:
+			return true;
+		case MAGO:
+			return true;
+		default:
+			return false;
 		}
 	}
 }
