@@ -1,15 +1,20 @@
 package razas.clasesConcretas;
 
+/**
+ * Clase que implementa metodos abstractos de {@code RazaBase<?>}
+ * @author lautarowojcik
+ */
 import atributosDeRazaYClase.AtributosBase;
 import clases.interfaces.ClaseBase;
 import razas.clasesNoConcretas.Exiliados;
+import razas.excepciones.ClaseNoAceptadaParaRazaException;
 
 public final class Trol<T extends ClaseBase> extends Exiliados<T> {
-	public Trol(String nickname, T clase) throws Exception {
+	public Trol(String nickname, T clase) throws ClaseNoAceptadaParaRazaException {
 		super(nickname, clase);
 	}
 
-	public Trol(String nickname, T clase, int lvl) throws Exception {
+	public Trol(String nickname, T clase, int lvl) throws ClaseNoAceptadaParaRazaException {
 		super(nickname, clase, lvl);
 	}
 

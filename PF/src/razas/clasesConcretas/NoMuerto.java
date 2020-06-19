@@ -3,13 +3,19 @@ package razas.clasesConcretas;
 import atributosDeRazaYClase.AtributosBase;
 import clases.interfaces.ClaseBase;
 import razas.clasesNoConcretas.Exiliados;
+import razas.excepciones.ClaseNoAceptadaParaRazaException;
 
+/**
+ * Clase que implementa metodos abstractos de {@code RazaBase<?>}
+ * 
+ * @author lautarowojcik
+ */
 public final class NoMuerto<T extends ClaseBase> extends Exiliados<T> {
-	public NoMuerto(String nickname, T clase) throws Exception {
+	public NoMuerto(String nickname, T clase) throws ClaseNoAceptadaParaRazaException {
 		super(nickname, clase);
 	}
 
-	public NoMuerto(String nickname, T clase, int lvl) throws Exception {
+	public NoMuerto(String nickname, T clase, int lvl) throws ClaseNoAceptadaParaRazaException {
 		super(nickname, clase, lvl);
 	}
 

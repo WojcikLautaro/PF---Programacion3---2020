@@ -1,13 +1,19 @@
 package razas.clasesNoConcretas;
 
 import clases.interfaces.ClaseBase;
+import razas.excepciones.ClaseNoAceptadaParaRazaException;
 
+/**
+ * Clase que implementa metodos abstractos de {@code RazaBase<?>}
+ * 
+ * @author lautarowojcik
+ */
 public abstract class Exiliados<T extends ClaseBase> extends RazaBase<T> {
-	public Exiliados(String nickname, T clase) throws Exception {
+	public Exiliados(String nickname, T clase) throws ClaseNoAceptadaParaRazaException {
 		super(nickname, clase);
 	}
 
-	public Exiliados(String nickname, T clase, int lvl) throws Exception {
+	public Exiliados(String nickname, T clase, int lvl) throws ClaseNoAceptadaParaRazaException {
 		super(nickname, clase, lvl);
 	}
 

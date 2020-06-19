@@ -1,5 +1,10 @@
 package clases.recursos;
 
+/**
+ * Clase que contiene los maximos de los recursos de una clase.
+ * 
+ * @author lautarowojcik
+ */
 public class MaximosRecursos {
 	protected int vida;
 	protected int mana;

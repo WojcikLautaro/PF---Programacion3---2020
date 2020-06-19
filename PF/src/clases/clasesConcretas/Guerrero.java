@@ -9,6 +9,11 @@ import clases.recursos.MaximosRecursos;
 import clases.recursos.Recursos;
 import razas.clasesNoConcretas.RazaBase.POSIBLES_CLASES;
 
+/**
+ * Clase que implementa metodos de la interfaz {@code ClaseBase}
+ * 
+ * @author lautarowojcik
+ */
 public final class Guerrero implements ClaseBase {
 	@Override
 	public ArrayList<Habilidad> getClassAbilities() {

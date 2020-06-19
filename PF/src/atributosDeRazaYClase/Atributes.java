@@ -1,5 +1,10 @@
 package atributosDeRazaYClase;
 
+/**
+ * Clase que coordina la funcionalidad de atributos base y multiplicadores.
+ * 
+ * @author lautarowojcik
+ */
 public class Atributes {
 	/*
 	 * Posibles atributos: Fuerza, Inteligencia, Sabiduria, Destreza, Suerte,
@@ -11,14 +16,6 @@ public class Atributes {
 
 	public Atributes() {
 		this.baseAtributes = new AtributosBase();
-		this.multipliers = new AtributeMultipliers();
-	}
-
-	/**
-∫	 * @param baseAtributes
-	 */
-	public Atributes(AtributosBase baseAtributes) {
-		this.baseAtributes = baseAtributes;
 		this.multipliers = new AtributeMultipliers();
 	}
 

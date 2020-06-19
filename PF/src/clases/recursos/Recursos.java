@@ -1,5 +1,10 @@
 package clases.recursos;
 
+/**
+ * Clase que contiene los recursos de una clase.
+ * 
+ * @author lautarowojcik
+ */
 public class Recursos {
 	/*
 	 * Posibles recursos vida, mana, furia, stamina;

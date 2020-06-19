@@ -23,44 +23,82 @@ import razas.clasesConcretas.Humano;
 import razas.clasesConcretas.NoMuerto;
 import razas.clasesConcretas.Orco;
 import razas.clasesConcretas.Trol;
+import razas.excepciones.ClaseNoAceptadaParaRazaException;
 
+/**
+ * Clase base que se usa para describir la funcionalidad de un personaje y un
+ * conjunto de funciones fabrica y enums para facilitar la creacion de estos.
+ * 
+ * @author lautarowojcik
+ */
 public abstract class RazaBase<T extends ClaseBase> {
-	public static enum RAZAS_EXILIADAS {
-		ORCO, NOMUERTO, TROL, GOBLIN
-	}
-
-	public static enum RAZAS_GUARDIANAS {
-		HUMANO, ELFO, ENANO, DRAENEL
-	}
-
+	/**
+	 * Alianzas posibles.
+	 */
 	public static enum POSIBLES_ALIANZAS {
 		EXILIADOS, GUARDIANES, SIN_ALIANZA
 	}
 
+	/**
+	 * Clases posibles.
+	 */
 	public static enum POSIBLES_CLASES {
 		GUERRERO, PALADIN, CAZADOR, PICARO, SACERDOTE, MAGO, BRUJO, DRUIDA, SIN_CLASE;
 	}
 
+	/**
+	 * Razas posibles.
+	 */
 	public static enum POSIBLES_RAZAS {
 		ORCO, NOMUERTO, TROL, GOBLIN, HUMANO, ELFO, ENANO, DRAENEL, SIN_RAZA
 	}
 
-	/*
-	 * Orco -> Guerrero, Paladin, Picaro, Cazador Trol -> Guerrero, Brujo Goblin ->
-	 * Picaro, Guerrero, Brujo No muerto -> Brujo, Sacerdote, Mago
-	 * 
-	 * Humano -> Guerrero, Paladin, Picaro, Cazador Elfo -> Druida, Brujo,
-	 * Sacerdote, Mago Enano -> Picaro, Guerrero, Paladin Draenel -> Brujo,
-	 * Sacerdote, Mago
+	/**
+	 * Razas que pertenecen a la alianza exiliada.
 	 */
+	public static enum RAZAS_EXILIADAS {
+		ORCO, NOMUERTO, TROL, GOBLIN
+	}
 
+	/**
+	 * Razas que pertenecen a la alianza guardiana.
+	 */
+	public static enum RAZAS_GUARDIANAS {
+		HUMANO, ELFO, ENANO, DRAENEL
+	}
+
+	/**
+	 * Metodo para facilitar la creacion de personajes.
+	 * 
+	 * @param raza  Raza que va a ser el personaje, una de las especificadas en
+	 *              {@code POSIBLES_RAZAS}.
+	 * @param clase Clase que va a ser el personaje, una de las especificadas en
+	 *              {@code POSIBLES_CLASES}.
+	 * @param nick  Nombre que va a tener el personaje.
+	 * @throws ClaseNoAceptadaParaRazaException Devuelve una excepcion en caso de que la clase del
+	 *                   personaje no sea correspondiente a la raza.
+	 * @return Un personaje terminado.
+	 */
 	public final static RazaBase<?> getNuevoPersonaje(POSIBLES_RAZAS raza, POSIBLES_CLASES clase, String nick)
-			throws Exception {
+			throws ClaseNoAceptadaParaRazaException {
 		return getNuevoPersonaje(raza, clase, nick, 0);
 	}
 
+	/**
+	 * Metodo para facilitar la creacion de personajes.
+	 * 
+	 * @param raza  Raza que va a ser el personaje, una de las especificadas en
+	 *              {@code POSIBLES_RAZAS}.
+	 * @param clase Clase que va a ser el personaje, una de las especificadas en
+	 *              {@code POSIBLES_CLASES}.
+	 * @param nick  Nombre que va a tener el personaje.
+	 * @param nivel Nivel que va a tener el personaje.
+	 * @throws ClaseNoAceptadaParaRazaException Devuelve una excepcion en caso de que la clase del
+	 *                   personaje no sea correspondiente a la raza.
+	 * @return Un personaje terminado.
+	 */
 	public final static RazaBase<?> getNuevoPersonaje(POSIBLES_RAZAS raza, POSIBLES_CLASES clase, String nick,
-			int nivel) throws Exception {
+			int nivel) throws ClaseNoAceptadaParaRazaException {
 		switch (raza) {
 		case ORCO:
 			switch (clase) {
@@ -247,38 +285,66 @@ public abstract class RazaBase<T extends ClaseBase> {
 			}
 
 		default:
-			break;
+			return null;
 		}
-
-		throw new Exception();
 	}
 
+	/**
+	 * Alianza a la que va a pertenecer el personaje.
+	 */
 	protected POSIBLES_ALIANZAS alianza;
 
+	/**
+	 * Raza a la que va a pertenecer el personaje.
+	 */
 	protected POSIBLES_RAZAS raza;
+
+	/**
+	 * Clase a la que va a pertenecer el personaje.
+	 */
 	protected POSIBLES_CLASES clase;
+
+	/**
+	 * Descripcion del personaje.
+	 */
 	protected String characterDescription;
+
+	/**
+	 * Nombre del personaje.
+	 */
 	protected String nick;
 
+	/**
+	 * Nivel del personaje.
+	 */
 	protected Integer lvl;
-	protected float experiencia;
+
+	/**
+	 * Racursos del personaje.
+	 */
 	protected Recursos resources;
 
+	/**
+	 * Atributos del personaje.
+	 */
 	protected Atributes atributes;
 
+	/**
+	 * Habilidades del personaje.
+	 */
 	protected ArrayList<Habilidad> habilidades;
 
 	/**
-	 * @param String nickname: el nombre del nuevo personaje.
-	 * @return Devuelve un objeto de la clase "BaseRace" nuevo. este metodo esta
-	 *         dedicado a personajes recien creados.
+	 * @param nickname: el nombre del nuevo personaje.
+	 * @param clase:    la clase del nuevo personaje.
+	 * @throws ClaseNoAceptadaParaRazaException Devuelve una excepcion en caso de que la clase del
+	 *                   personaje no sea correspondiente a la raza.
 	 */
-
-	public RazaBase(String nickname, T clase) throws Exception {
+	public RazaBase(String nickname, T clase) throws ClaseNoAceptadaParaRazaException {
 		if (getEsUnaClaseAceptada(clase.getEnumDeClase()))
 			this.clase = clase.getEnumDeClase();
 		else
-			throw new Exception("Clase no aceptada: " + clase.getEnumDeClase());
+			throw new ClaseNoAceptadaParaRazaException(clase);
 
 		this.atributes = new Atributes(getBaseAtributesFromRace(), clase.getMultiplicadorDeAtributosDeClase());
 
@@ -291,14 +357,25 @@ public abstract class RazaBase<T extends ClaseBase> {
 		this.characterDescription = getDescripcionDePersonaje();
 		this.nick = nickname;
 		this.lvl = 0;
-		this.experiencia = 0;
 	}
 
-	public RazaBase(String nickname, T clase, int lvl) throws Exception {
+	/**
+	 * @param nickname: el nombre del nuevo personaje.
+	 * @param clase:    la clase del nuevo personaje.
+	 * @param lvl:      el nivel del nuevo personaje.
+	 * @throws ClaseNoAceptadaParaRazaException Devuelve una excepcion en caso de que la clase del
+	 *                   personaje no sea correspondiente a la raza.
+	 */
+	public RazaBase(String nickname, T clase, int lvl) throws ClaseNoAceptadaParaRazaException {
 		this(nickname, clase);
 		this.lvl = lvl;
 	}
 
+	/**
+	 * Metodo para comparar si un personaje es igual a otro objeto. Esta
+	 * implementado para comparar si el nombre de los personajes es igual, entonces
+	 * los personajes son iguales.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof RazaBase<?>) {
@@ -310,49 +387,113 @@ public abstract class RazaBase<T extends ClaseBase> {
 		return false;
 	}
 
+	/**
+	 * Metodo para obtener los atributos base de una raza.
+	 */
 	protected abstract AtributosBase getBaseAtributesFromRace();
 
+	/**
+	 * Metodo para obtener la descripcion de un personaje.
+	 */
 	public String getCharacterDescription() {
 		return this.characterDescription;
 	}
 
+	/**
+	 * Metodo para obtener la descripcion de un personaje segun raza.
+	 */
 	protected abstract String getDescripcionDePersonaje();
 
+	/**
+	 * Metodo para obtener la alianza segun raza.
+	 */
 	protected abstract POSIBLES_ALIANZAS getEnumAliance();
 
+	/**
+	 * Metodo para obtener la raza de un personaje segun raza.
+	 */
 	protected abstract POSIBLES_RAZAS getEnumRace();
 
+	/**
+	 * Una funcion para comprobar que la clase es aceptada segun raza.
+	 * 
+	 * @param c el enum de la clase a ser comprobada.
+	 * @return true si es aceptada, sino false.
+	 * 
+	 * @Descripcion Clases posibles segun raza:
+	 *              <p>
+	 *              Orco -> Guerrero, Paladin, Picaro, Cazador
+	 *              <p>
+	 *              Trol -> Guerrero, Brujo
+	 *              <p>
+	 *              Goblin -> Picaro, Guerrero, Brujo
+	 *              <p>
+	 *              No muerto -> Brujo, Sacerdote, Mago
+	 *              <p>
+	 * 
+	 *              Humano -> Guerrero, Paladin, Picaro, Cazador
+	 *              <p>
+	 *              Elfo -> Druida, Brujo, Sacerdote, Mago
+	 *              <p>
+	 *              Enano -> Picaro, Guerrero, Paladin
+	 *              <p>
+	 *              Draenel -> Brujo, Sacerdote, Mago
+	 */
 	protected abstract boolean getEsUnaClaseAceptada(POSIBLES_CLASES c);
 
+	/**
+	 * Getter de habilidades.
+	 */
 	public ArrayList<Habilidad> getHabilidades() {
 		return habilidades;
 	}
 
+	/**
+	 * Getter de nivel.
+	 */
 	public Integer getLvl() {
 		return this.lvl;
 	}
 
+	/**
+	 * Getter de nombre.
+	 */
 	public String getNick() {
 		return this.nick;
 	}
 
+	/**
+	 * Getter de alianza.
+	 */
 	public POSIBLES_ALIANZAS getNombreDeAlianza() {
 		return this.alianza;
 	}
 
+	/**
+	 * Getter de Clase.
+	 */
 	public POSIBLES_CLASES getNombreDeClase() {
 		return this.clase;
 	}
 
+	/**
+	 * Getter de raza.
+	 */
 	public POSIBLES_RAZAS getNombreDeRaza() {
 		return this.raza;
 	}
 
+	/**
+	 * Override para el equals.
+	 */
 	@Override
 	public int hashCode() {
 		return 0;
 	}
 
+	/**
+	 * Simple override.
+	 */
 	@Override
 	public String toString() {
 		StringBuilder output = new StringBuilder();

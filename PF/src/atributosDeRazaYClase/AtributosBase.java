@@ -1,5 +1,10 @@
 package atributosDeRazaYClase;
 
+/**
+ * Clase que contiene atributos base.
+ * 
+ * @author lautarowojcik
+ */
 public class AtributosBase {
 	protected int strenght;
 	protected int inteligence;

@@ -1,5 +1,10 @@
 package clases.habilidades;
 
+/**
+ * Clase que contiene los nombres de habilidad y sus descripciones.
+ * 
+ * @author lautarowojcik
+ */
 public abstract class Habilidad {
 	protected String nombre;
 

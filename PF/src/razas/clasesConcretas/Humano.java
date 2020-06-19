@@ -3,13 +3,19 @@ package razas.clasesConcretas;
 import atributosDeRazaYClase.AtributosBase;
 import clases.interfaces.ClaseBase;
 import razas.clasesNoConcretas.Guardianes;
+import razas.excepciones.ClaseNoAceptadaParaRazaException;
 
+/**
+ * Clase que implementa metodos abstractos de {@code RazaBase<?>}
+ * 
+ * @author lautarowojcik
+ */
 public final class Humano<T extends ClaseBase> extends Guardianes<T> {
-	public Humano(String nickname, T clase) throws Exception {
+	public Humano(String nickname, T clase) throws ClaseNoAceptadaParaRazaException {
 		super(nickname, clase);
 	}
 
-	public Humano(String nickname, T clase, int lvl) throws Exception {
+	public Humano(String nickname, T clase, int lvl) throws ClaseNoAceptadaParaRazaException {
 		super(nickname, clase, lvl);
 	}
 

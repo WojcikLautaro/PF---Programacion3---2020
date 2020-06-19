@@ -1,5 +1,10 @@
 package atributosDeRazaYClase;
 
+/**
+ * Clase que se usa para contener los multiplicadores de atributos.
+ * 
+ * @author lautarowojcik
+ */
 public class AtributeMultipliers {
 	protected float luck;
 	protected float divinity;

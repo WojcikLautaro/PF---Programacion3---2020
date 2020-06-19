@@ -3,13 +3,19 @@ package razas.clasesConcretas;
 import atributosDeRazaYClase.AtributosBase;
 import clases.interfaces.ClaseBase;
 import razas.clasesNoConcretas.Exiliados;
+import razas.excepciones.ClaseNoAceptadaParaRazaException;
 
+/**
+ * Clase que implementa metodos abstractos de {@code RazaBase<?>}
+ * 
+ * @author lautarowojcik
+ */
 public final class Orco<T extends ClaseBase> extends Exiliados<T> {
-	public Orco(String nickname, T clase) throws Exception {
+	public Orco(String nickname, T clase) throws ClaseNoAceptadaParaRazaException {
 		super(nickname, clase);
 	}
 
-	public Orco(String nickname, T clase, int lvl) throws Exception {
+	public Orco(String nickname, T clase, int lvl) throws ClaseNoAceptadaParaRazaException {
 		super(nickname, clase, lvl);
 	}
 

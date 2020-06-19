@@ -1,14 +1,17 @@
-import java.io.IOException;
 import java.util.ArrayList;
 
 import administradorDePersonajes.AdministradorDePersonajes;
+import administradorDePersonajes.excepciones.PersonajeOcupadoException;
+import administradorDePersonajes.excepciones.ProblemaAlGuardarElArchivoException;
+import administradorDePersonajes.excepciones.UsuarioNoRegistradoException;
 import razas.clasesNoConcretas.RazaBase;
+import razas.excepciones.ClaseNoAceptadaParaRazaException;
 
 public class Main {
 	public static void main(String[] args) {
 		ArrayList<RazaBase<?>> personajes = new ArrayList<>();
 		try {
-			personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.HUMANO, RazaBase.POSIBLES_CLASES.PALADIN,
+			personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.HUMANO, RazaBase.POSIBLES_CLASES.MAGO,
 					"Flor"));
 			// personajes.add(RazaBase.getNuevoPersonaje(RazaBase.POSIBLES_RAZAS.ORCO,
 			// RazaBase.POSIBLES_CLASES.GUERRERO, "Guerrero"));
@@ -20,7 +23,7 @@ public class Main {
 			// RazaBase.POSIBLES_CLASES.PALADIN, "Sancho"));
 		}
 
-		catch (Exception e) {
+		catch (ClaseNoAceptadaParaRazaException e) {
 			e.printStackTrace();
 		}
 
@@ -37,19 +40,23 @@ public class Main {
 
 		try {
 			System.out.println("Result: " + admin.getPersonajeDeUsuario("usuarioB", "Flor"));
-		} 
-		
-		catch (Exception e2) {
-			e2.printStackTrace();
+		}
+
+		catch (UsuarioNoRegistradoException e) {
+			e.printStackTrace();
 		}
 
 		for (RazaBase<?> aux : personajes) {
 			try {
 				admin.aniadirPersonajeAUsuario("usuarioA", aux);
+			}
+
+			catch (PersonajeOcupadoException e) {
+				e.printStackTrace();
 			} 
 			
-			catch (Exception e1) {
-				e1.printStackTrace();
+			catch (UsuarioNoRegistradoException e) {
+				e.printStackTrace();
 			}
 		}
 
@@ -57,9 +64,9 @@ public class Main {
 
 		try {
 			admin.guardar("file.dat");
-		} 
-		
-		catch (IOException e) {
+		}
+
+		catch (ProblemaAlGuardarElArchivoException e) {
 			e.printStackTrace();
 		}
 	}
